@@ -1,0 +1,49 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.marquee {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 40px 0;
+    background: transparent;
+
+    &Wrapper {
+        display: flex;
+        position: relative;
+        width: fit-content;
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .marqueeText {
+        text-transform: uppercase;
+        font-family: $title-font;
+        font-weight: $medium-font-weight;
+        color: $title-color;
+        font-size: 8rem;
+        line-height: 90%;
+        letter-spacing: -0.5rem;
+        white-space: nowrap;
+        padding-right: $spacing-xl;
+        will-change: transform;
+
+        @include respond-to(ipad) {
+            font-size: 6rem;
+        }
+
+        @include respond-to(large-tablet) {
+            font-size: 5rem;
+        }
+
+        @include respond-to(phone) {
+            font-size: 3rem;
+            letter-spacing: -0.25rem;
+        }
+    }
+
+    @include respond-to(phone) {
+        padding: 60px 0;
+    }
+}

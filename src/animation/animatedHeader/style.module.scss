@@ -1,0 +1,42 @@
+@import "@/styles/variables.scss";
+
+.headerContainer {
+    color: $title-color;
+    text-transform: uppercase;
+    line-height: 0.8;
+    font-weight: 700;
+    font-size: clamp(10px, 6vw, 160px);
+    font-family: $title-font;
+    margin: 0;
+    padding: 0;
+    display: block; 
+
+    @media (min-width: 600px) and (max-width: 1200px) {
+        font-size: clamp(12px, 6.5vw, 120px);
+    }
+
+    @media (max-width: 480px) {
+        font-size: calc(32/var(--gfs)*1rem);
+    }
+
+    @media (max-width: 556px) {
+        margin-top: 0;
+        line-height: 0.88;
+    }
+}
+
+.wordWrapper {
+    display: inline-block; 
+    white-space: nowrap;
+}
+
+.header {
+    display: inline-block;
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+
+    span {
+        display: inline-block;
+    }
+}

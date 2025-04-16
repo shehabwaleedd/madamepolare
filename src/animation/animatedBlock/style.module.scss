@@ -1,0 +1,47 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.animatedBlock {
+    width: 100%;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+}
+
+.sentence {
+    width: 60%;
+    margin: 0 auto;
+    font-size: $header-font-size;
+    font-family: 400;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    color: $title-color;
+    text-align: center;
+}
+
+.sentence span {
+    display: inline-block;
+    font-family: $title-font;
+    line-height: 0.9;
+}
+
+.letter {
+    display: inline-block;
+    clip-path: polygon(-5% 5%, -5% 114%, 105% 114%, 105% 5%);
+    overflow: hidden;
+}
+
+.word {
+    display: inline-block;
+
+}
+
+@include respond-to(medium-tablet) {
+    .sentence {
+        width: 95%;
+        font-size: 40px;
+        max-width: 400px;
+    }
+}
