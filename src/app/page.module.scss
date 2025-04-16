@@ -1,0 +1,10 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.page {
+  position: relative;
+  z-index: 2;
+  background-color: $background-color;
+  @include flexCenter(column);
+  width: 100%;
+}

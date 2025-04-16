@@ -1,0 +1,68 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+
+.navbar {
+    @include position(fixed, 0, 0, null, 0);
+    width: 100%;
+    padding: $spacing-sm $spacing-lg;
+    z-index: 999999;
+    pointer-events: none;
+
+    @media screen and (min-width: 1050px) and (max-width: 1300px) {
+        padding: $spacing-xs $spacing-sm;
+    }
+
+    @include respond-to(medium-tablet, max) {
+        padding: $spacing-xs;
+        padding-top: 2.5vh;
+    }
+}
+
+.container {
+    @include flex(row, space-between, center);
+    border-radius: $nav-border-radius;
+    width: 100%;
+    margin: 0 auto;
+    pointer-events: all;
+
+    @include respond-to(medium-tablet, max) {
+        width: 100%;
+        gap: $spacing-xs;
+        padding: 0 $spacing-xs;
+        height: unset;
+    }
+}
+
+.content {
+    @include flex(row, space-between, center);
+    width: 100%;
+}
+
+.links {
+    @include flexCenter(row);
+    gap: $spacing-sm;
+    font-family: $body-font;
+
+
+}
+
+.link  {
+    @include font-style($normal-font-size, 1.2, 400);
+    color: $title-color;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: $accent-color;
+    }
+}
+
+
+.logo {
+    h2 {
+        font-size: $body-font-size;
+        font-weight: 400;
+        color: $title-color;
+    }
+}

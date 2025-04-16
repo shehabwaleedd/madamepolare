@@ -3,17 +3,18 @@ import "@/styles/globals.css";
 import SmoothScroller from "@/animation/SmoothScrolling";
 import localFont from "next/font/local";
 import { ViewTransitions } from "next-view-transitions";
+import Navbar from "@/components/navbar";
 
 const maisonNeueBlack = localFont({
   src: "../../public/fonts/Maison Neue Black.woff2",
-  variable: "--satoshi-font",
+  variable: "--maisonNeueBlack-font",
   display: "swap",
   weight: '900',
 });
 
 const maisonNeueBold = localFont({
   src: "../../public/fonts/Maison Neue Bold.woff2",
-  variable: "--cabinetGrotesk-font",
+  variable: "--maisonNeueBold-font",
   weight: '500',
   preload: true,
 });
@@ -21,32 +22,20 @@ const maisonNeueBold = localFont({
 
 const maisonNeueMedium = localFont({
   src: "../../public/fonts/Maison Neue Medium.woff2",
-  variable: "--clash-font",
+  variable: "--maisonNeueMedium-font",
   weight: '400',
   preload: true,
 });
 
 export const metadata: Metadata = {
-  title: "Zeej Media | زيج",
-  description:
-    "Zeej Media transforms media production in Saudi Arabia through innovation, visual storytelling, and world-class execution. Trusted by leading brands, we bring ideas to life.",
-  keywords: [
-    "Zeej Media",
-    "زيج",
-    "Media Production Saudi",
-    "Event Management",
-    "Creative Studio",
-    "Cinematic Production",
-    "Saudi Arabia Media",
-    "Visual Storytelling",
-    "Digital Experiences"
-  ],
-  metadataBase: new URL("https://www.zeej.media"),
+  title: "Madamepolare Agency",
+  description: "Madamepolare transforms media production in Saudi Arabia through innovation, visual storytelling, and world-class execution. Trusted by leading brands, we bring ideas to life.",
+  metadataBase: new URL("https://www.madamepolare.com"),
   openGraph: {
-    title: "Zeej Media | زيج",
+    title: "Madamepolare Agency",
     description:
       "A creative powerhouse in Saudi Arabia. We craft immersive experiences, cinematic visuals, and high-impact storytelling for the region’s top brands.",
-    url: "https://www.zeej.media",
+    url: "https://www.madamepolare.com",
     siteName: "Zeej Media",
     type: "website",
     images: [
@@ -60,11 +49,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zeej Media | زيج",
-    description:
-      "Zeej crafts unforgettable stories and experiences for brands across Saudi Arabia and beyond.",
+    title: "Madamepolare Agency",
+    description: "Madamepolare transforms media production in Saudi Arabia through innovation, visual storytelling, and world-class execution. Trusted by leading brands, we bring ideas to life.",
     images: ["/og-cover.jpg"],
-    creator: "@zeejmedia", 
+    creator: "@madamepolare", 
   },
   icons: {
     icon: "/favicon.ico",
@@ -82,11 +70,11 @@ export default function RootLayout({
   return (
     <html lang="en" >
       <ViewTransitions>
-        <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${cabinetGrotesk.variable} zeej`} >
-
+        <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} zeej`} >
+          <Navbar />
           {children}
-          <SmoothScroller />
 
+          <SmoothScroller />
         </body>
       </ViewTransitions>
     </html>
