@@ -47,10 +47,10 @@ const Navbar: React.FC = () => {
                         ))}
                     </div>
                     <div className={styles.center}>
-                        content
+                        Communication Agency
                     </div>
                     <div className={styles.right}>
-
+                            
                     </div>
                 </div>
             </nav>
