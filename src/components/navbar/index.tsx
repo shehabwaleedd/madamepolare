@@ -46,6 +46,12 @@ const Navbar: React.FC = () => {
                             </TransitionLink>
                         ))}
                     </div>
+                    <div className={styles.center}>
+                        content
+                    </div>
+                    <div className={styles.right}>
+
+                    </div>
                 </div>
             </nav>
         </motion.header>

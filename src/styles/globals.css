@@ -1,8 +1,9 @@
 :root {
     --title-font: var(--maisonNeueBold-font, "MaisonNeueBold", sans-serif);
-    --body-font: var(--maisonNeueMedium-font, "MaisonNeueMedium", sans-serif);
+    --body-font: var(--maisonNeueLight-font, "MaisonNeueLight", sans-serif);
     --black-font: var(--maisonNeueBlack-font, "MaisonNeueBlack", sans-serif);
-    --background-color: #ffffff;
+    --medium-font: var(--maisonNeueMedium-font, "MaisonNeueMedium", sans-serif);
+    --background-color: #f5f5f5;
     --primary-selection-color: #1e1e1e;
     --primary-selection-color-text: #EEAFA9;
     --title-color: #202020;

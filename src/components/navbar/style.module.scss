@@ -3,11 +3,12 @@
 
 
 .navbar {
-    @include position(fixed, 0, 0, null, 0);
+    @include position(relative, 0, 0, null, 0);
     width: 100%;
     padding: $spacing-sm $spacing-lg;
     z-index: 999999;
     pointer-events: none;
+    margin-bottom: 19vh;
 
     @media screen and (min-width: 1050px) and (max-width: 1300px) {
         padding: $spacing-xs $spacing-sm;
@@ -43,15 +44,17 @@
     @include flexCenter(row);
     gap: $spacing-sm;
     font-family: $body-font;
-
-
+    background-color: #fff;
+    padding: $spacing-sm;
+    border-radius: 0.375rem
 }
 
-.link  {
-    @include font-style($normal-font-size, 1.2, 400);
+.link {
+    @include font-style($normal-font-size, 1.2, 300);
     color: $title-color;
     text-decoration: none;
     transition: color 0.3s ease;
+
 
     &:hover {
         color: $accent-color;
@@ -61,6 +64,7 @@
 
 .logo {
     font-family: $black-font;
+
     span {
         font-size: 11.5vw;
         font-weight: 900;
