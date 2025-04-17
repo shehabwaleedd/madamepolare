@@ -6,17 +6,18 @@ import { ViewTransitions } from "next-view-transitions";
 import Navbar from "@/components/navbar";
 
 const maisonNeueBlack = localFont({
-  src: "../../public/fonts/Maison Neue Black.woff2",
+  src: "../../public/fonts/CabinetGrotesk-Variable.woff2",
   variable: "--maisonNeueBlack-font",
   display: "swap",
-  weight: '900',
+  preload: true,
 });
 
 const maisonNeueBold = localFont({
   src: "../../public/fonts/Maison Neue Bold.woff2",
   variable: "--maisonNeueBold-font",
-  weight: '500',
+  weight: '700',
   preload: true,
+  display: "swap",
 });
 
 
@@ -25,6 +26,7 @@ const maisonNeueMedium = localFont({
   variable: "--maisonNeueMedium-font",
   weight: '400',
   preload: true,
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
     description:
       "A creative powerhouse in Saudi Arabia. We craft immersive experiences, cinematic visuals, and high-impact storytelling for the region’s top brands.",
     url: "https://www.madamepolare.com",
-    siteName: "Zeej Media",
+    siteName: "Madamepolare Agency",
     type: "website",
     images: [
       {
@@ -70,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" >
       <ViewTransitions>
-        <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} zeej`} >
+        <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable}`} >
           <Navbar />
           {children}
 

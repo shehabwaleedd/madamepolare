@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import styles from "./style.module.scss";
 import { motion, useScroll, useMotionValue, useMotionValueEvent } from 'framer-motion';
 import TransitionLink from '@/animation/transitionLink';
+import UpperNav from './upperNav';
 
 
 const Navbar: React.FC = () => {
@@ -32,11 +33,12 @@ const Navbar: React.FC = () => {
 
     return (
         <motion.header className={styles.navbar} style={{ opacity, transition: "opacity 0.3s ease" }}>
+            <UpperNav />
             <nav className={styles.container}>
+                <TransitionLink href="/" className={styles.logo}>
+                    <span>Madamepolare</span>
+                </TransitionLink>
                 <div className={styles.content}>
-                    <TransitionLink href="/" className={styles.logo}>
-                        <h2>Madamepolare</h2>
-                    </TransitionLink>
                     <div className={styles.links}>
                         {links.map((link) => (
                             <TransitionLink key={link.title} href={link.href} className={styles.link}>

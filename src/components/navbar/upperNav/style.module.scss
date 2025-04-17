@@ -1,0 +1,15 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.upperNav {
+    position: relative;
+    z-index: 2;
+    @include flexCenter(column);
+    width: 100%;
+    margin-bottom: $spacing-xs;
+
+    .wrapper {
+        @include flex(row, space-between, center);
+        width: 100%;
+    }
+}
