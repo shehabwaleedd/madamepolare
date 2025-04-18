@@ -3,7 +3,6 @@ $container-color: #ffffff;
 $accent-color: #EEAFA9;
 $title-color: #1e1e1e;
 $text-color: #5c5c5c;
-$text-color-light: #6B7280;
 $subtitle-color: #e0e0e0;
 $border-color: rgba($title-color, 0.125);
 $white: #fffeff;
@@ -12,6 +11,18 @@ $gray: #f5f5f5;
 $dark-grey: #232323;
 $dark-grey-2: #323232;
 $text-gray: #777;
+$transparent: #ffffff00;
+$dark: #1E1E1E;
+$dark-faded: rgba(#353233, 0.2);
+$light: #FFFFFF;
+$light-faded: rgba(#FFFFFF, 0.2);
+$brand-gray: #F5F5F5;
+$brand-pink: #EEAFA9;
+$brand-blue: #47AFE5;
+$brand-green: #75D1B4;
+$brand-yellow: #FCCF5E;
+$brand-purple: #F96653;
+$brand-text: $dark;
 
 
 // Font Sizes
@@ -93,31 +104,49 @@ $shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 
 
-// Spacing
+// Space Scale
+$spacing-none: 0;
 $spacing-xxs: 0.25rem;
 $spacing-xs: 0.5rem;
 $spacing-sx: 0.75rem;
 $spacing-sm: 1rem;
-$spacing-ms: 1.25rem;
+$spacing-base: 1rem;
 $spacing-md: 1.5rem;
-$spacing-ml: 1.75rem;
 $spacing-lg: 2rem;
-$spacing-xl: 3rem;
-$spacing-xxl: 4rem;
+$spacing-xl: 2.5rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
+$spacing-4xl: 5rem;
+$spacing-5xl: 6rem;
+$spacing-6xl: 7rem;
+$spacing-7xl: 8rem;
+$spacing-8xl: 9rem;
+$spacing-9xl: 10rem;
+$spacing-10xl: 11rem;
+$spacing-11xl: 12rem;
+$spacing-12xl: 13rem;
+$spacing-13xl: 14rem;
+$spacing-14xl: 15rem;
+$spacing-15xl: 16rem;
 
-$spacing-section: 12.5vh 3vw;
-$spacing-section-mobile: 6.25vh 1rem;
+// Content Spacing
+$content-space-eyebrow-margin: $spacing-4xl;
+$content-space-button-margin: $spacing-5xl;
+$content-space-button-group-gap: $spacing-sm;
+
+// Border Widths
+$border-width-main: 1.5px;
 
 // Border radius
+$border-radius-sm: 0.3125rem;
+$border-radius: 0.3125rem;
 $border-radius-full: 50%;
-$border-radius-sm: 0.375rem;
-$border-radius-md: 0.75rem;
-$border-radius: 1rem;
-$border-radius-xl: 1.5rem;
-$border-radius-xxl: 2rem;
 
-;
-$border-radius-full: 9999px;
+// Site Spacing
+$site-margin-desktop: 24px;
+$site-margin-mobile: 16px;
+$site-gutter-desktop: 24px;
+$site-gutter-mobile: 16px;
 
 
 // Container widths
@@ -131,6 +160,20 @@ $container-max-width-xxl: 1540px;
 $container-max-width-xxxl: 1850px;
 $container-max-width-xxxxl: 2160px;
 
+// Column Widths
+$column-width-1: 97px;
+$column-width-2: 211px;
+$column-width-3: 324px;
+$column-width-4: 437px;
+$column-width-5: 551px;
+$column-width-6: 664px;
+$column-width-7: 777px;
+$column-width-8: 891px;
+$column-width-9: 1004px;
+$column-width-10: 1117px;
+$column-width-11: 1231px;
+$column-width-12: 1344px;
+
 
 // consistent button styles 
 $nav-height: 72px;
@@ -140,3 +183,70 @@ $nav-border-radius: 16px;
 $active-line-thickness: 2px;
 $icon-size: 20px;
 $dropdown-animation-speed: 0.25s;
+
+// Base Size Scale
+$size-base: 16px;
+$size-none: 0;
+$size-xxs: 2px;
+$size-xs: 4px;
+$size-sm-xs: 6px;
+$size-sm: 8px;
+$size-md-sm: 12px;
+$size-md: 16px;
+$size-md-lg: 20px;
+$size-lg: 24px;
+$size-xl: 32px;
+$size-2xl: 40px;
+$size-3xl: 48px;
+$size-4xl: 56px;
+$size-5xl: 64px;
+$size-6xl: 72px;
+$size-7xl: 80px;
+
+
+// Theme Variables
+$theme-background-light: $light;
+$theme-text-light: $dark;
+$theme-border-light: $dark-faded;
+
+$theme-background-dark: $dark;
+$theme-text-dark: $light;
+$theme-border-dark: $light-faded;
+
+$theme-background-color: $brand-pink;
+$theme-text-color: $dark;
+$theme-border-color: $dark-faded;
+
+$theme-background-gray: $brand-gray;
+$theme-text-gray: $dark;
+$theme-border-gray: $dark-faded;
+
+
+// Button Styles
+$button-primary-bg-light: $dark;
+$button-primary-text-light: $light;
+$button-primary-border-light: $dark;
+$button-primary-bg-hover-light: $dark;
+$button-primary-border-hover-light: $dark;
+$button-primary-text-hover-light: $light;
+
+$button-primary-bg-dark: $light;
+$button-primary-text-dark: $dark;
+$button-primary-border-dark: $light;
+$button-primary-bg-hover-dark: $light;
+$button-primary-border-hover-dark: $light;
+$button-primary-text-hover-dark: $dark;
+
+$button-secondary-bg-light: transparent;
+$button-secondary-text-light: $dark;
+$button-secondary-border-light: $dark-faded;
+$button-secondary-bg-hover-light: $dark;
+$button-secondary-border-hover-light: $dark;
+$button-secondary-text-hover-light: $light;
+
+$button-secondary-bg-dark: transparent;
+$button-secondary-text-dark: $light;
+$button-secondary-border-dark: $light-faded;
+$button-secondary-bg-hover-dark: $light;
+$button-secondary-border-hover-dark: $light;
+$button-secondary-text-hover-dark: $dark;

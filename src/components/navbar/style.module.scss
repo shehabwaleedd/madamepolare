@@ -38,6 +38,7 @@
 .content {
     @include flex(row, space-between, center);
     width: 100%;
+    font-family: $medium-font;
 }
 
 .links {

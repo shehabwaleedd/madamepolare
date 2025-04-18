@@ -6,7 +6,7 @@ import { notFound } from "next/navigation";
 import SmoothScroller from "@/animation/SmoothScrolling";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
-import "@/styles/globals.css";
+import "@/styles/globals.scss";
 import { resolveLang } from "@/helper/resolveLang";
 
 

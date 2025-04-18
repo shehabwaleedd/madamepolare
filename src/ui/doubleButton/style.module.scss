@@ -8,13 +8,14 @@
         padding: $spacing-sx;
         background-color: $container-color;
         border-radius: $border-radius-sm;
+        font-family: $medium-font;
     }
     .icon {
         @include flexCenter(row);
         border-radius: $border-radius-full;
+        padding: $spacing-xs;
         svg {
-            width: 20px;
-            height: 20px;
+            font-size: 4rem;
         }
     }
     
