@@ -87,219 +87,6 @@ interface HomeDocumentData {
 export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
-type NewsPageDocumentDataSlicesSlice = never;
-
-/**
- * Content for News Page documents
- */
-interface NewsPageDocumentData {
-  /**
-   * Slice Zone field in *News Page*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: news_page.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<NewsPageDocumentDataSlicesSlice> /**
-   * Meta Title field in *News Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: news_page.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *News Page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: news_page.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * Meta Image field in *News Page*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: news_page.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  meta_image: prismic.ImageField<never>;
-}
-
-/**
- * News Page document from Prismic
- *
- * - **API ID**: `news_page`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type NewsPageDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<NewsPageDocumentData>,
-    "news_page",
-    Lang
-  >;
-
-/**
- * Item in *News Post → Tags*
- */
-export interface NewsPostDocumentDataTagsItem {
-  /**
-   * Tag field in *News Post → Tags*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Select a tag for the news post
-   * - **API ID Path**: news_post.tags[].tag
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  tag: prismic.SelectField<
-    "Most Popular" | "Hot right now" | "Most recent" | "Most read"
-  >;
-}
-
-type NewsPostDocumentDataSlicesSlice = never;
-
-/**
- * Content for News Post documents
- */
-interface NewsPostDocumentData {
-  /**
-   * Title field in *News Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: News post title
-   * - **API ID Path**: news_post.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * mainImage field in *News Post*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: news_post.mainimage
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  mainimage: prismic.ImageField<never>;
-
-  /**
-   * Tags field in *News Post*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: news_post.tags[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  tags: prismic.GroupField<Simplify<NewsPostDocumentDataTagsItem>>;
-
-  /**
-   * Date field in *News Post*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: Publication date
-   * - **API ID Path**: news_post.date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  date: prismic.DateField;
-
-  /**
-   * Description field in *News Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Short description or excerpt of the news post
-   * - **API ID Path**: news_post.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description: prismic.KeyTextField;
-
-  /**
-   * Content field in *News Post*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Main content of the news post
-   * - **API ID Path**: news_post.content
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  content: prismic.RichTextField;
-
-  /**
-   * Slice Zone field in *News Post*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: news_post.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#slices
-   */
-  slices: prismic.SliceZone<NewsPostDocumentDataSlicesSlice> /**
-   * Meta Title field in *News Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Meta title for SEO
-   * - **API ID Path**: news_post.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */;
-  meta_title: prismic.KeyTextField;
-
-  /**
-   * Meta Description field in *News Post*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Meta description for SEO
-   * - **API ID Path**: news_post.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  meta_description: prismic.KeyTextField;
-
-  /**
-   * image field in *News Post*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: news_post.image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * News Post document from Prismic
- *
- * - **API ID**: `news_post`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type NewsPostDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<NewsPostDocumentData>,
-    "news_post",
-    Lang
-  >;
-
 type PageDocumentDataSlicesSlice = never;
 
 /**
@@ -446,12 +233,34 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes =
-  | HomeDocument
-  | NewsPageDocument
-  | NewsPostDocument
-  | PageDocument
-  | SettingsDocument;
+export type AllDocumentTypes = HomeDocument | PageDocument | SettingsDocument;
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation = HeroSliceDefault;
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -477,13 +286,6 @@ declare module "@prismicio/client" {
       HomeDocument,
       HomeDocumentData,
       HomeDocumentDataSlicesSlice,
-      NewsPageDocument,
-      NewsPageDocumentData,
-      NewsPageDocumentDataSlicesSlice,
-      NewsPostDocument,
-      NewsPostDocumentData,
-      NewsPostDocumentDataTagsItem,
-      NewsPostDocumentDataSlicesSlice,
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -491,6 +293,9 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavItemsItem,
       AllDocumentTypes,
+      HeroSlice,
+      HeroSliceVariation,
+      HeroSliceDefault,
     };
   }
 }

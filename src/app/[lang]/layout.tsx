@@ -6,6 +6,8 @@ import { notFound } from "next/navigation";
 import SmoothScroller from "@/animation/SmoothScrolling";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
+import "@/styles/globals.css";
+
 
 const maisonNeueBlack = localFont({
   src: "../../../public/fonts/CabinetGrotesk-Variable.woff2",
@@ -79,19 +81,11 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   };
 }
 
-export default function LangLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { lang: string };
-}) {
+export default function LangLayout({ children, params, }: { children: React.ReactNode; params: { lang: string }; }) {
   return (
     <html lang={params.lang}>
       <ViewTransitions>
-        <body
-          className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} ${maisonNeueLight.variable}`}
-        >
+        <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} ${maisonNeueLight.variable}`}>
           <Navbar />
           {children}
           <SmoothScroller />

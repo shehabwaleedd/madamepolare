@@ -11,5 +11,6 @@
     .wrapper {
         @include flex(row, space-between, center);
         width: 100%;
+        line-break: loose;
     }
 }
