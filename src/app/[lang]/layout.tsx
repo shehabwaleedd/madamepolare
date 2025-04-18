@@ -92,13 +92,13 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 export default async function LangLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }>; }) {
 
   const lang = await resolveLang(params);
+  const fullLocale = getFullLocale(lang);
   const client = createClient();
 
   const repo = await client.getRepository();
 
   const locales = repo.languages.map((l) => {
     const simpleLocale = getSimpleLocale(l.id);
-
     return {
       lang: l.id,
       lang_name: l.name,
@@ -106,12 +106,16 @@ export default async function LangLayout({ children, params }: { children: React
     };
   });
 
+  // Fetch settings with full locale
+  const settings = await client.getSingle("settings", {
+    lang: fullLocale,
+  });
 
   return (
     <html lang={lang}>
       <ViewTransitions>
         <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} ${maisonNeueLight.variable}`}>
-          <Navbar locales={locales} />
+          <Navbar locales={locales} settings={settings.data} />
           {children}
           <SmoothScroller />
         </body>
