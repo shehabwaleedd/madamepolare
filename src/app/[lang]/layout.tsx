@@ -7,6 +7,7 @@ import SmoothScroller from "@/animation/SmoothScrolling";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
 import "@/styles/globals.css";
+import { resolveLang } from "@/helper/resolveLang";
 
 
 const maisonNeueBlack = localFont({
@@ -40,9 +41,12 @@ const maisonNeueLight = localFont({
   display: "swap",
 });
 
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
+type Params = Promise<{ lang: string }>;
+
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const lang = await resolveLang(params);
   const client = createClient();
-  const fullLocale = getFullLocale(params.lang);
+  const fullLocale = getFullLocale(lang);
   const page = await client.getSingle("home", { lang: fullLocale }).catch(() => null);
 
   if (!page) return notFound();
@@ -81,9 +85,16 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   };
 }
 
-export default function LangLayout({ children, params, }: { children: React.ReactNode; params: { lang: string }; }) {
+
+
+
+
+export default async function LangLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }>; }) {
+  const lang = await resolveLang(params);
+
+
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <ViewTransitions>
         <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} ${maisonNeueLight.variable}`}>
           <Navbar />

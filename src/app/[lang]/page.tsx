@@ -4,17 +4,17 @@ import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { getFullLocale } from '@/utils/localeUtils';
 import { notFound } from 'next/navigation';
+import { resolveLang } from '@/helper/resolveLang';
 
-type Params = { lang: string };
+type Params = Promise<{ lang: string }>;
 
-export async function generateMetadata({ params, }: { params: Params; }): Promise<Metadata> {
-  const fullLocale = getFullLocale(params.lang);
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
+  const lang = await resolveLang(params);
+  const fullLocale = getFullLocale(lang);
 
   try {
     const client = createClient();
-
     const page = await client.getSingle('home', { lang: fullLocale });
-
 
     if (!page) {
       return {
@@ -35,13 +35,12 @@ export async function generateMetadata({ params, }: { params: Params; }): Promis
 }
 
 export default async function Home({ params }: { params: Params }) {
-  const fullLocale = getFullLocale(params.lang);
+  const lang = await resolveLang(params);
+  const fullLocale = getFullLocale(lang);
 
   try {
     const client = createClient();
-
     const page = await client.getSingle('home', { lang: fullLocale });
-
 
     return (
       <div className="container home-container">
@@ -57,8 +56,6 @@ export default async function Home({ params }: { params: Params }) {
 export async function generateStaticParams() {
   const client = createClient();
   const repository = await client.getRepository();
-
-  console.log("generateStaticParams languages", repository.languages);
 
   return repository.languages.map(lang => ({
     lang: lang.id.split('-')[0],
