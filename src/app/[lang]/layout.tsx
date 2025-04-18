@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ViewTransitions } from "next-view-transitions";
 import { createClient } from "@/prismicio";
-import { getFullLocale } from "@/utils/localeUtils";
+import { getFullLocale, getSimpleLocale } from "@/utils/localeUtils";
 import { notFound } from "next/navigation";
 import SmoothScroller from "@/animation/SmoothScrolling";
 import localFont from "next/font/local";
@@ -90,14 +90,28 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 
 export default async function LangLayout({ children, params }: { children: React.ReactNode; params: Promise<{ lang: string }>; }) {
+
   const lang = await resolveLang(params);
+  const client = createClient();
+
+  const repo = await client.getRepository();
+
+  const locales = repo.languages.map((l) => {
+    const simpleLocale = getSimpleLocale(l.id);
+
+    return {
+      lang: l.id,
+      lang_name: l.name,
+      url: `/${simpleLocale}`,
+    };
+  });
 
 
   return (
     <html lang={lang}>
       <ViewTransitions>
         <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} ${maisonNeueLight.variable}`}>
-          <Navbar />
+          <Navbar locales={locales} />
           {children}
           <SmoothScroller />
         </body>

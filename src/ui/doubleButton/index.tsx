@@ -1,12 +1,17 @@
 import React from 'react'
 import styles from "./style.module.scss"
+import { LanguageSwitcher } from '@/components/languageSwitcher'
+import { NavbarProps } from '@/types/general'
 
-const DoubleButton = () => {
+const DoubleButton: React.FC<NavbarProps> = ({ locales }) => {
     return (
         <div className={styles.doubleButton}>
+            <div className={styles.languageSwitcher}>
+                <LanguageSwitcher locales={locales} />
+            </div>
             <div className={styles.body}>
                 <span>
-                    Button
+                    Let&apos;s Talk
                 </span>
             </div>
             <div className={styles.icon}>

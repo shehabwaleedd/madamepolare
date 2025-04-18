@@ -5,9 +5,10 @@ import { motion, useScroll, useMotionValue, useMotionValueEvent } from 'framer-m
 import TransitionLink from '@/animation/transitionLink';
 import UpperNav from './upperNav';
 import DoubleButton from '@/ui/doubleButton';
+import { NavbarProps } from '@/types/general';
 
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<NavbarProps> = ({ locales }) => {
     const { scrollY } = useScroll();
     const lastScrollY = useRef(0);
     const opacity = useMotionValue(1);
@@ -51,7 +52,7 @@ const Navbar: React.FC = () => {
                         Communication Agency
                     </div>
                     <div className={styles.right}>
-                        <DoubleButton />
+                        <DoubleButton locales={locales}/>
                     </div>
                 </div>
             </nav>

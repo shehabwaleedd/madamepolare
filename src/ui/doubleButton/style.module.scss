@@ -5,7 +5,7 @@
     @include flex(row, flex-start, center);
     
     .body, .icon {
-        padding: $spacing-sx;
+        padding: $size-1 $size-15;
         background-color: $container-color;
         border-radius: $border-radius-sm;
         font-family: $medium-font;
@@ -13,7 +13,7 @@
     .icon {
         @include flexCenter(row);
         border-radius: $border-radius-full;
-        padding: $spacing-xs;
+        padding: $size-075;
         svg {
             font-size: 4rem;
         }

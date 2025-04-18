@@ -1,0 +1,124 @@
+@import '@/styles/variables';
+@import '@/styles/mixins';
+
+.languageSwitcher {
+    position: relative;
+    display: inline-block;
+    z-index: $z-index-overlay;
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    color: var(--text);
+    font-family: $medium-font;
+    font-weight: $body-font-weight;
+    font-size: 14px;
+    transition: $transition-fast;
+    outline: none;
+
+    &:hover {
+        background-color: rgba($dark, 0.05);
+
+        [data-theme="dark"] & {
+            background-color: rgba($light, 0.05);
+        }
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 2px $dark-faded;
+
+        [data-theme="dark"] & {
+            box-shadow: 0 0 0 2px $light-faded;
+        }
+    }
+}
+
+.currentLocale {
+    margin-right: $spacing-xxs;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform $transition-fast;
+
+    &.open {
+        transform: rotate(180deg);
+    }
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: $spacing-xs;
+    min-width: 100px;
+    background: var(--background);
+    border-radius: $border-radius-sm;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeIn $transition-fast forwards;
+
+    [data-theme="dark"] & {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    &.active {
+        background-color: rgba($dark, 0.05);
+
+        [data-theme="dark"] & {
+            background-color: rgba($light, 0.05);
+        }
+
+        .link {
+            font-weight: $body-font-weight;
+        }
+    }
+}
+
+.link {
+    display: block;
+    padding: $spacing-xs $spacing-md;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    transition: all $transition-fast;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &:hover {
+        background-color: rgba($dark, 0.1);
+
+        [data-theme="dark"] & {
+            background-color: rgba($light, 0.1);
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
