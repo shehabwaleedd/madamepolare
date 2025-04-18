@@ -106,7 +106,6 @@ export default async function LangLayout({ children, params }: { children: React
     };
   });
 
-  // Fetch settings with full locale
   const settings = await client.getSingle("settings", {
     lang: fullLocale,
   });

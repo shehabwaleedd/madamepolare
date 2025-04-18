@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from "./style.module.scss"
 import { LanguageSwitcher } from '@/components/languageSwitcher'
-import { NavbarProps } from '@/types/general'
+import { DoubleButtonProps } from '@/types/general'
 
-const DoubleButton: React.FC<NavbarProps> = ({ locales }) => {
+
+
+const DoubleButton: React.FC<DoubleButtonProps> = ({ locales }) => {
     return (
         <div className={styles.doubleButton}>
             <div className={styles.languageSwitcher}>

@@ -30,10 +30,23 @@ const Navbar: React.FC<NavbarProps> = ({ locales, settings }) => {
         lastScrollY.current = current;
     });
 
-    const links = settings?.nav_items?.map((item) => ({
-        title: item.link_label,
-        href: item.link_url.url || '/',
-    })) ?? [];
+    const links = settings?.nav_items?.map((item) => {
+        const linkUrl = item.link_url;
+        let href = '/';
+
+        if (linkUrl) {
+            if (linkUrl.link_type === 'Web') {
+                href = linkUrl.url || '/';
+            } else if (linkUrl.link_type === 'Document') {
+                href = linkUrl.slug ? `/${linkUrl.slug}` : '/';
+            }
+        }
+
+        return {
+            title: item.link_label || '',
+            href
+        };
+    }) ?? [];
 
     return (
         <motion.header className={styles.navbar} style={{ opacity, transition: "opacity 0.3s ease" }}>
