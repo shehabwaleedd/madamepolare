@@ -4,6 +4,7 @@ import styles from "./style.module.scss";
 import { motion, useScroll, useMotionValue, useMotionValueEvent } from 'framer-motion';
 import TransitionLink from '@/animation/transitionLink';
 import UpperNav from './upperNav';
+import DoubleButton from '@/ui/doubleButton';
 
 
 const Navbar: React.FC = () => {
@@ -50,7 +51,7 @@ const Navbar: React.FC = () => {
                         Communication Agency
                     </div>
                     <div className={styles.right}>
-                            
+                        <DoubleButton />
                     </div>
                 </div>
             </nav>

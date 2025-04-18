@@ -1,0 +1,21 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.doubleButton {
+    @include flex(row, flex-start, center);
+    
+    .body, .icon {
+        padding: $spacing-sx;
+        background-color: $container-color;
+        border-radius: $border-radius-sm;
+    }
+    .icon {
+        @include flexCenter(row);
+        border-radius: $border-radius-full;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    
+}
