@@ -22,21 +22,7 @@
     transition: $transition-fast;
     outline: none;
 
-    &:hover {
-        background-color: rgba($dark, 0.05);
 
-        [data-theme="dark"] & {
-            background-color: rgba($light, 0.05);
-        }
-    }
-
-    &:focus {
-        box-shadow: 0 0 0 2px $dark-faded;
-
-        [data-theme="dark"] & {
-            box-shadow: 0 0 0 2px $light-faded;
-        }
-    }
 }
 
 .currentLocale {
@@ -48,11 +34,6 @@
 .arrow {
     width: 16px;
     height: 16px;
-    transition: transform $transition-fast;
-
-    &.open {
-        transform: rotate(180deg);
-    }
 }
 
 .dropdown {
@@ -60,12 +41,11 @@
     top: 100%;
     right: 0;
     margin-top: $spacing-xs;
-    min-width: 100px;
+    width: fit-content;
     background: var(--background);
     border-radius: $border-radius-sm;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    animation: fadeIn $transition-fast forwards;
 
     [data-theme="dark"] & {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -98,7 +78,7 @@
     text-decoration: none;
     color: var(--text);
     font-size: 14px;
-    transition: all $transition-fast;
+    transition: background-color $transition-fast;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 
@@ -108,17 +88,5 @@
         [data-theme="dark"] & {
             background-color: rgba($light, 0.1);
         }
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
