@@ -1,0 +1,32 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.marquee {
+    position: relative;
+    width: 100%;
+
+    background: transparent;
+
+    &Wrapper {
+        display: flex;
+        position: relative;
+        width: 100%;
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        
+    }
+
+    .marqueeText {
+        text-transform: uppercase;
+        font-family: $medium-font;
+        color: $title-color;
+        font-size: $normal-font-size;
+        white-space: nowrap;
+        padding-right: $spacing-xl;
+        will-change: transform;
+        animation-delay: -20s;
+    }
+
+
+}

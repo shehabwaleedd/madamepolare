@@ -3,9 +3,9 @@ import React, { useRef } from 'react';
 import styles from "./style.module.scss";
 import { motion, useScroll, useMotionValue, useMotionValueEvent } from 'framer-motion';
 import TransitionLink from '@/animation/transitionLink';
-import UpperNav from './upperNav';
 import DoubleButton from '@/ui/doubleButton';
 import { NavbarProps } from '@/types/general';
+import Marquee from '@/animation/marquee';
 
 
 const Navbar: React.FC<NavbarProps> = ({ locales }) => {
@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ locales }) => {
 
     return (
         <motion.header className={styles.navbar} style={{ opacity, transition: "opacity 0.3s ease" }}>
-            <UpperNav />
+            <Marquee text='Welcome to our website'/>
             <nav className={styles.container}>
                 <TransitionLink href="/" className={styles.logo}>
                     <span>Madamepolare</span>
@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ locales }) => {
                         ))}
                     </div>
                     <div className={styles.center}>
-                        Communication Agency
+                        <h3>Communication Agency</h3>
                     </div>
                     <div className={styles.right}>
                         <DoubleButton locales={locales}/>
