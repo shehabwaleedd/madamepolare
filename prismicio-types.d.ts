@@ -215,6 +215,39 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   nav_items: prismic.GroupField<Simplify<SettingsDocumentDataNavItemsItem>>;
+
+  /**
+   * MarqueeText field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Marquee Text ( Must ) e.g (Welcome to our website)
+   * - **API ID Path**: settings.marqueetext
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  marqueetext: prismic.KeyTextField;
+
+  /**
+   * centeredTitle field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Centered Title ( Must ) e.g. ( Community Agency )
+   * - **API ID Path**: settings.centeredtitle
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  centeredtitle: prismic.KeyTextField;
+
+  /**
+   * Double Button Title field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Button Title ( Must ) e.g. ( Let's Talk )
+   * - **API ID Path**: settings.double_button_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  double_button_title: prismic.KeyTextField;
 }
 
 /**

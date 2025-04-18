@@ -46,6 +46,27 @@
             }
           }
         }
+      },
+      "marqueetext": {
+        "type": "Text",
+        "config": {
+          "label": "MarqueeText",
+          "placeholder": "Please Enter Marquee Text ( Must ) e.g (Welcome to our website)"
+        }
+      },
+      "centeredtitle": {
+        "type": "Text",
+        "config": {
+          "label": "centeredTitle",
+          "placeholder": "Please Enter Centered Title ( Must ) e.g. ( Community Agency )"
+        }
+      },
+      "double_button_title": {
+        "type": "Text",
+        "config": {
+          "label": "Double Button Title",
+          "placeholder": "Please Enter Button Title ( Must ) e.g. ( Let's Talk )"
+        }
       }
     }
   }
