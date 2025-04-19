@@ -320,6 +320,7 @@ export interface ServicePostDocumentDataRelatedProjectsItem {
 }
 
 type ServicePostDocumentDataSlicesSlice =
+  | ServiceHeroSlice
   | ProcessStepsSlice
   | ServiceOfferingsSlice
   | BlockContentSlice;
@@ -1008,6 +1009,51 @@ export type ProcessStepsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ServiceHero → Default → Primary*
+ */
+export interface ServiceHeroSliceDefaultPrimary {
+  /**
+   * Service Title field in *ServiceHero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Service Title ( Must )
+   * - **API ID Path**: service_hero.default.primary.service_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  service_title: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for ServiceHero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceHeroSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ServiceHeroSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ServiceHero*
+ */
+type ServiceHeroSliceVariation = ServiceHeroSliceDefault;
+
+/**
+ * ServiceHero Shared Slice
+ *
+ * - **API ID**: `service_hero`
+ * - **Description**: ServiceHero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServiceHeroSlice = prismic.SharedSlice<
+  "service_hero",
+  ServiceHeroSliceVariation
+>;
+
+/**
  * Item in *ServiceOfferings → Default → Primary → Service Offerings → Sub Offerings*
  */
 export interface ServiceOfferingsSliceDefaultPrimaryServiceOfferingsSubOfferingsItem {
@@ -1172,6 +1218,10 @@ declare module "@prismicio/client" {
       ProcessStepsSliceDefaultPrimary,
       ProcessStepsSliceVariation,
       ProcessStepsSliceDefault,
+      ServiceHeroSlice,
+      ServiceHeroSliceDefaultPrimary,
+      ServiceHeroSliceVariation,
+      ServiceHeroSliceDefault,
       ServiceOfferingsSlice,
       ServiceOfferingsSliceDefaultPrimaryServiceOfferingsSubOfferingsItem,
       ServiceOfferingsSliceDefaultPrimaryServiceOfferingsItem,

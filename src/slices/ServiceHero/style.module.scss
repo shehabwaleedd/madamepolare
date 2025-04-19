@@ -1,0 +1,13 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+
+.serviceHero {
+    @include flexCenter(column);
+    width: 100%;
+    padding: $section-space-main $site-margin;
+
+    h1 {
+        font-size: $size-7;
+    }
+}

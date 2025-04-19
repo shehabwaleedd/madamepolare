@@ -6,5 +6,6 @@ export const components = {
   block_content: dynamic(() => import("./BlockContent")),
   hero_section: dynamic(() => import("./HeroSection")),
   process_steps: dynamic(() => import("./ProcessSteps")),
+  service_hero: dynamic(() => import("./ServiceHero")),
   service_offerings: dynamic(() => import("./ServiceOfferings")),
 };
