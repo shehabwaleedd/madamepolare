@@ -29,8 +29,6 @@ const fetchServiceData = async (slice: Content.StickyServicesSlice) => {
     })
     .filter((id): id is string => id !== null) || [];
 
-
-
   const enServices = await client.getAllByType('service_post', { lang: 'en-us' });
   const frServices = await client.getAllByType('service_post', { lang: 'fr-fr' });
   const allServices = [...enServices, ...frServices];
@@ -48,7 +46,7 @@ const StickyServices = async ({ slice }: StickyServicesProps) => {
   const services = await fetchServiceData(slice);
 
   return (
-    <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} data-is-sticky={is_sticky || false} className={styles.stickyServices}>
+    <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} data-is-sticky={is_sticky} className={styles.stickyServices}>
       <div className={styles.header}>
         {section_eyebrow && (
           <span className={styles.eyebrow}>{section_eyebrow}</span>
@@ -71,12 +69,12 @@ const StickyServices = async ({ slice }: StickyServicesProps) => {
           if (!service) return null;
 
           return (
-            <TransitionLink key={service.id} href={`/services/${service.uid}`} className={styles.cardLink} style={{ backgroundColor: item.card_background_color || "#ffffff", color: item.card_text_color || "#000000", top: `calc(-2vh + ${index * 8}vh)` }}>
-              <div className={styles.card} >
+            <TransitionLink key={service.id} href={`/services/${service.uid}`} className={styles.cardLink} style={{ backgroundColor: item.card_background_color || "#ffffff", color: item.card_text_color || "#000000", top: is_sticky ? `calc(-2vh + ${index * 8.75}vh)` : 'auto' }}>
+              <div className={styles.card}>
                 <div className={styles.cardContent}>
                   <div className={styles.cardHeader}>
                     <h3 className={styles.cardTitle}>{service.data.title}</h3>
-                    <p style={{color: item.card_text_color || "#fff"}} className={styles.tagline}>{service.data.tagline}</p>
+                    <p style={{ color: item.card_text_color || "#fff" }} className={styles.tagline}>{service.data.tagline}</p>
                   </div>
                   <div className={styles.cardDescription}>
                     <div className={styles.featuresTop}>
@@ -84,7 +82,7 @@ const StickyServices = async ({ slice }: StickyServicesProps) => {
                     </div>
                     <div className={styles.featuresBottom}>
                       {service.data.service_items?.map((serviceItem, i) => (
-                        <p style={{color: item.card_text_color || "#fff"}} key={i}>• {serviceItem.item}</p>
+                        <p style={{ color: item.card_text_color || "#fff" }} key={i}>• {serviceItem.item}</p>
                       ))}
                     </div>
                   </div>

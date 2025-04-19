@@ -42,7 +42,7 @@ const ServicesImagesSlider: FC<ServicesImagesSliderProps> = ({ slice }) => {
         trigger: container,
         pin: true,
         scrub: true,
-        start: 'top top',
+      start: 'top top',
         end: '+=' + distance
       }
     });
