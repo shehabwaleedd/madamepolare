@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = HeroSectionSlice;
+type HomeDocumentDataSlicesSlice = BlockContentSlice | HeroSectionSlice;
 
 /**
  * Content for home documents
@@ -269,63 +269,167 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomeDocument | PageDocument | SettingsDocument;
 
 /**
- * Item in *HeroSection → Default → Primary → Hero Rows*
+ * Primary content in *BlockContent → Default → Primary*
  */
-export interface HeroSectionSliceDefaultPrimaryHeroRowsItem {
+export interface BlockContentSliceDefaultPrimary {
   /**
-   * Heading field in *HeroSection → Default → Primary → Hero Rows*
+   * Left Paragraph field in *BlockContent → Default → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero_section.default.primary.hero_rows[].heading
+   * - **Placeholder**: Please Enter Left Paragraph ( Optional )
+   * - **API ID Path**: block_content.default.primary.left_paragraph
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  heading: prismic.KeyTextField;
+  left_paragraph: prismic.KeyTextField;
 
   /**
-   * Avatar Image field in *HeroSection → Default → Primary → Hero Rows*
+   * Right Paragraph field in *BlockContent → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Right Paragraph ( Optional )
+   * - **API ID Path**: block_content.default.primary.right_paragraph
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  right_paragraph: prismic.KeyTextField;
+
+  /**
+   * CTA field in *BlockContent → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Please Enter CTA ( Optional )
+   * - **API ID Path**: block_content.default.primary.cta
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for BlockContent Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlockContentSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BlockContentSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BlockContent*
+ */
+type BlockContentSliceVariation = BlockContentSliceDefault;
+
+/**
+ * BlockContent Shared Slice
+ *
+ * - **API ID**: `block_content`
+ * - **Description**: BlockContent
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BlockContentSlice = prismic.SharedSlice<
+  "block_content",
+  BlockContentSliceVariation
+>;
+
+/**
+ * Item in *HeroSection → Default → Primary → Team Member Avatars*
+ */
+export interface HeroSectionSliceDefaultPrimaryAvatarsItem {
+  /**
+   * Team Member Avatar field in *HeroSection → Default → Primary → Team Member Avatars*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero_section.default.primary.hero_rows[].avatar_image
+   * - **API ID Path**: hero_section.default.primary.avatars[].avatar_image
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   avatar_image: prismic.ImageField<never>;
+
+  /**
+   * Avatar Alt Text field in *HeroSection → Default → Primary → Team Member Avatars*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Team member name
+   * - **API ID Path**: hero_section.default.primary.avatars[].avatar_alt
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  avatar_alt: prismic.KeyTextField;
 }
 
 /**
  * Primary content in *HeroSection → Default → Primary*
  */
 export interface HeroSectionSliceDefaultPrimary {
-
   /**
- * First Row Heading field in *HeroSection → Default → Primary*
- *
- * - **Field Type**: Text
- * - **Placeholder**: All-in-one
- * - **API ID Path**: hero_section.default.primary.first_row_heading
- * - **Documentation**: https://prismic.io/docs/field#key-text
- */
+   * First Row Heading field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: All-in-one
+   * - **API ID Path**: hero_section.default.primary.first_row_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
   first_row_heading: prismic.KeyTextField;
 
   /**
-   * 
-/**
- * Main Image field in *HeroSection → Default → Primary*
- *
- * - **Field Type**: Image
- * - **Placeholder**: *None*
- * - **API ID Path**: hero_section.default.primary.main_image
- * - **Documentation**: https://prismic.io/docs/field#image
- */
+   * Main Hero Image field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.default.primary.main_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
   main_image: prismic.ImageField<never>;
+
+  /**
+   * Second Row Heading (Before Avatars) field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Creative
+   * - **API ID Path**: hero_section.default.primary.second_row_heading_before
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  second_row_heading_before: prismic.KeyTextField;
+
+  /**
+   * Team Member Avatars field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.default.primary.avatars[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  avatars: prismic.GroupField<
+    Simplify<HeroSectionSliceDefaultPrimaryAvatarsItem>
+  >;
+
+  /**
+   * Second Row Heading (After Avatars) field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: & Design
+   * - **API ID Path**: hero_section.default.primary.second_row_heading_after
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  second_row_heading_after: prismic.KeyTextField;
+
+  /**
+   * Third Row Heading field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Agency
+   * - **API ID Path**: hero_section.default.primary.third_row_heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  third_row_heading: prismic.KeyTextField;
 
   /**
    * Icon Type field in *HeroSection → Default → Primary*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
-   * - **Default Value**: arrowRight
+   * - **Default Value**: arrowDown
    * - **API ID Path**: hero_section.default.primary.icon_type
    * - **Documentation**: https://prismic.io/docs/field#select
    */
@@ -342,79 +446,51 @@ export interface HeroSectionSliceDefaultPrimary {
   >;
 
   /**
-   * Hero Rows field in *HeroSection → Default → Primary*
+   * Maximum Visible Avatars field in *HeroSection → Default → Primary*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Number
    * - **Placeholder**: *None*
-   * - **API ID Path**: hero_section.default.primary.hero_rows[]
-   * - **Documentation**: https://prismic.io/docs/field#group
+   * - **API ID Path**: hero_section.default.primary.max_visible_avatars
+   * - **Documentation**: https://prismic.io/docs/field#number
    */
-  hero_rows: prismic.GroupField<
-    Simplify<HeroSectionSliceDefaultPrimaryHeroRowsItem>
-  >;
-
-  second_row_heading_before: prismic.KeyTextField;
-  third_row_heading: prismic.KeyTextField;
-
-  /**
- * Second Row Heading (After Avatars) field in *HeroSection → Default → Primary*
- *
- * - **Field Type**: Text
- * - **Placeholder**: & Design
- * - **API ID Path**: hero_section.default.primary.second_row_heading_after
- * - **Documentation**: https://prismic.io/docs/field#key-text
- */
-  second_row_heading_after: prismic.KeyTextField;
-
-  /**
-
-
-/**
- * Maximum Visible Avatars field in *HeroSection → Default → Primary*
- *
- * - **Field Type**: Number
- * - **Placeholder**: *None*
- * - **API ID Path**: hero_section.default.primary.max_visible_avatars
- * - **Documentation**: https://prismic.io/docs/field#number
- */
   max_visible_avatars: prismic.NumberField;
-  /**
- * Team Member Avatars field in *HeroSection → Default → Primary*
- *
- * - **Field Type**: Group
- * - **Placeholder**: *None*
- * - **API ID Path**: hero_section.default.primary.avatars[]
- * - **Documentation**: https://prismic.io/docs/field#group
- */
-  avatars: prismic.GroupField<Simplify<AvatarItem>>;
 
   /**
-   * 
-
-/**
- * Show Plus Sign field in *HeroSection → Default → Primary*
- *
- * - **Field Type**: Boolean
- * - **Placeholder**: *None*
- * - **Default Value**: true
- * - **API ID Path**: hero_section.default.primary.show_plus_sign
- * - **Documentation**: https://prismic.io/docs/field#boolean
- */
+   * Show Plus Sign field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: hero_section.default.primary.show_plus_sign
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
   show_plus_sign: prismic.BooleanField;
-
-  button_link: prismic.LinkField;
-
-
 
   /**
    * Button Text field in *HeroSection → Default → Primary*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Please Enter Button Text ( Must ) e.g. ( Let's Talk )
+   * - **Placeholder**: Book a free call
    * - **API ID Path**: hero_section.default.primary.button_text
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   button_text: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Select a link for the button
+   * - **API ID Path**: hero_section.default.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -439,7 +515,7 @@ type HeroSectionSliceVariation = HeroSectionSliceDefault;
  * HeroSection Shared Slice
  *
  * - **API ID**: `hero_section`
- * - **Description**: Hero section with grouped headings, avatars, and an icon selector.
+ * - **Description**: Hero section with headings, avatar images, and call-to-action button.
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSectionSlice = prismic.SharedSlice<
@@ -478,8 +554,12 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavItemsItem,
       AllDocumentTypes,
+      BlockContentSlice,
+      BlockContentSliceDefaultPrimary,
+      BlockContentSliceVariation,
+      BlockContentSliceDefault,
       HeroSectionSlice,
-      HeroSectionSliceDefaultPrimaryHeroRowsItem,
+      HeroSectionSliceDefaultPrimaryAvatarsItem,
       HeroSectionSliceDefaultPrimary,
       HeroSectionSliceVariation,
       HeroSectionSliceDefault,

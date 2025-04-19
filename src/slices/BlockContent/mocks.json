@@ -1,0 +1,28 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"left_paragraph": {
+				"__TYPE__": "FieldContent",
+				"value": "quickly",
+				"type": "Text"
+			},
+			"right_paragraph": {
+				"__TYPE__": "FieldContent",
+				"value": "five",
+				"type": "Text"
+			},
+			"cta": {
+				"__TYPE__": "LinkContent",
+				"key": "82fa9dae-9ac7-4560-97ce-5e7f354d58ba",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "teacher"
+				}
+			}
+		},
+		"items": []
+	}
+]

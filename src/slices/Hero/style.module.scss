@@ -4,6 +4,7 @@
 .hero {
     @include flexCenter(column);
     width: 100%;
+    padding: $spacing-sm $spacing-lg;
     gap: $spacing-sm;
 
     .content {

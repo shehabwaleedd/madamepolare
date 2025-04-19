@@ -1,0 +1,44 @@
+{
+  "id": "block_content",
+  "type": "SharedSlice",
+  "name": "BlockContent",
+  "description": "BlockContent",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "left_paragraph": {
+          "type": "Text",
+          "config": {
+            "label": "Left Paragraph",
+            "placeholder": "Please Enter Left Paragraph ( Optional )"
+          }
+        },
+        "right_paragraph": {
+          "type": "Text",
+          "config": {
+            "label": "Right Paragraph",
+            "placeholder": "Please Enter Right Paragraph ( Optional )"
+          }
+        },
+        "cta": {
+          "type": "Link",
+          "config": {
+            "label": "CTA",
+            "placeholder": "Please Enter CTA ( Optional )",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

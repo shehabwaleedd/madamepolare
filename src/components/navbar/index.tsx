@@ -71,7 +71,7 @@ const Navbar: React.FC<NavbarProps> = ({ locales, settings }) => {
                         <div className={styles.languageSwitcher}>
                             <LanguageSwitcher locales={locales} />
                         </div>
-                        <DoubleButton buttonTitle={settings?.double_button_title} />
+                        <DoubleButton buttonTitle={settings?.double_button_title || 'Let`s Talk'} />
                     </div>
                 </div>
             </nav>

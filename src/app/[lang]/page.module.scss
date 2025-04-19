@@ -7,4 +7,5 @@
   background-color: $background-color;
   @include flexCenter(column);
   width: 100%;
+  gap: $spacing-lg;
 }

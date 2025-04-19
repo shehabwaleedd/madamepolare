@@ -23,8 +23,10 @@ export interface Settings {
 }
 
 export interface DoubleButtonProps {
+    buttonTitle?: string;
     type?: IconType;
-    buttonTitle?: KeyTextField;
+    field?: LinkField;
+    className?: string;
 }
 
 export type IconType =

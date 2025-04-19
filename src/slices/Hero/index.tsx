@@ -34,7 +34,7 @@ const Hero: FC<HeroProps> = ({ slice }) => {
               <div className={styles.avatarContainer}>
                 {avatarImages.slice(0, maxVisibleAvatars).map((avatar, index) => {
                   const isLast = index === Math.min(maxVisibleAvatars, avatarImages.length) - 1;
-                  return (<PrismicNextImage key={index} field={avatar.avatar_image} className={styles.avatar} fallbackAlt={avatar.avatar_alt || `Team member ${index + 1}`} style={{ left: `${index * 48}px`, zIndex: maxVisibleAvatars - index, boxShadow: isLast ? '5px 0 10px rgba(0, 0, 0, 0.2)' : 'none' }} />);
+                  return (<PrismicNextImage key={index} field={avatar.avatar_image} className={styles.avatar} style={{ left: `${index * 48}px`, zIndex: maxVisibleAvatars - index, boxShadow: isLast ? '5px 0 10px rgba(0, 0, 0, 0.2)' : 'none' }} />);
                 })}
               </div>
               {showPlusSign && avatarImages.length > maxVisibleAvatars && (
