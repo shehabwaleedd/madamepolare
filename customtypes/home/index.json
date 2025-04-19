@@ -27,10 +27,10 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "block_content": {
+            "service_offerings": {
               "type": "SharedSlice"
             },
-            "hero_section": {
+            "block_content": {
               "type": "SharedSlice"
             }
           }

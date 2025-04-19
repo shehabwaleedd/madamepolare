@@ -4,7 +4,7 @@ import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { getFullLocale } from '@/utils/localeUtils';
 import { notFound } from 'next/navigation';
-import { resolveLang } from '@/helper/resolveLang';
+import { resolveLang } from '@/lib/resolveLang';
 import styles from "./page.module.scss";
 
 type Params = Promise<{ lang: string }>;

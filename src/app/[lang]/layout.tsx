@@ -7,7 +7,7 @@ import SmoothScroller from "@/animation/SmoothScrolling";
 import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
 import "@/styles/globals.scss";
-import { resolveLang } from "@/helper/resolveLang";
+import { resolveLang } from "@/lib/resolveLang";
 
 
 const maisonNeueBlack = localFont({

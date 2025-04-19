@@ -8,7 +8,7 @@ import DoubleButton from "@/ui/doubleButton";
 
 export type HeroProps = SliceComponentProps<Content.HeroSectionSlice>;
 
-const Hero: FC<HeroProps> = ({ slice }) => {
+const HeroSection: FC<HeroProps> = ({ slice }) => {
   const { primary } = slice;
 
   const maxVisibleAvatars = primary.max_visible_avatars || 3;
@@ -61,4 +61,4 @@ const Hero: FC<HeroProps> = ({ slice }) => {
   );
 };
 
-export default Hero;
+export default HeroSection;

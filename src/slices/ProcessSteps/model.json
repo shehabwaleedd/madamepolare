@@ -1,0 +1,74 @@
+{
+  "id": "process_steps",
+  "type": "SharedSlice",
+  "name": "ProcessSteps",
+  "description": "ProcessSteps",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "steps": {
+          "type": "Group",
+          "config": {
+            "label": "Process Steps",
+            "repeat": true,
+            "fields": {
+              "step_name": {
+                "type": "Text",
+                "config": {
+                  "label": "Step Name",
+                  "placeholder": "e.g., Strategy, Creative Concept"
+                }
+              },
+              "step_description": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Step Description",
+                  "placeholder": "Step details",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph"
+                }
+              },
+              "step_details": {
+                "type": "Group",
+                "config": {
+                  "label": "Step Details",
+                  "repeat": true,
+                  "fields": {
+                    "step_details_week": {
+                      "type": "Text",
+                      "config": {
+                        "label": "Step Week",
+                        "placeholder": "e.g., Week 1, Week 2"
+                      }
+                    },
+                    "step_details_title": {
+                      "type": "Text",
+                      "config": {
+                        "label": "Step Title",
+                        "placeholder": "e.g., Discovery, Research"
+                      }
+                    },
+                    "step_details_description": {
+                      "type": "Text",
+                      "config": {
+                        "label": "Step Description",
+                        "placeholder": "Description of this specific service"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

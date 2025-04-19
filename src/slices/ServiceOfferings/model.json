@@ -1,0 +1,65 @@
+{
+  "id": "service_offerings",
+  "type": "SharedSlice",
+  "name": "ServiceOfferings",
+  "description": "ServiceOfferings",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "service_offerings": {
+          "type": "Group",
+          "config": {
+            "label": "Service Offerings",
+            "repeat": true,
+            "fields": {
+              "offering_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Offering Title",
+                  "placeholder": "e.g., Editorial"
+                }
+              },
+              "offering_description": {
+                "type": "Text",
+                "config": {
+                  "label": "Offering Description",
+                  "placeholder": "Description of this service offering"
+                }
+              },
+              "sub_offerings": {
+                "type": "Group",
+                "config": {
+                  "label": "Sub Offerings",
+                  "repeat": true,
+                  "fields": {
+                    "sub_offering_title": {
+                      "type": "Text",
+                      "config": {
+                        "label": "Sub Offering Title",
+                        "placeholder": "e.g., Books & Magazine"
+                      }
+                    },
+                    "sub_offering_description": {
+                      "type": "Text",
+                      "config": {
+                        "label": "Sub Offering Description",
+                        "placeholder": "Description of this specific service"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
