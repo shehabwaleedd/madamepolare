@@ -7,6 +7,7 @@ import DoubleButton from '@/ui/doubleButton';
 import { NavbarProps } from '@/types/general';
 import Marquee from '@/animation/marquee';
 import SvgLogo from '@/ui/svgLogo';
+import { LanguageSwitcher } from '../languageSwitcher';
 
 const Navbar: React.FC<NavbarProps> = ({ locales, settings }) => {
     const { scrollY } = useScroll();
@@ -67,7 +68,10 @@ const Navbar: React.FC<NavbarProps> = ({ locales, settings }) => {
                         <h3>{settings?.centeredtitle || 'Communication Agency'}</h3>
                     </div>
                     <div className={styles.right}>
-                        <DoubleButton locales={locales} buttonTitle={settings?.double_button_title} />
+                        <div className={styles.languageSwitcher}>
+                            <LanguageSwitcher locales={locales} />
+                        </div>
+                        <DoubleButton buttonTitle={settings?.double_button_title} />
                     </div>
                 </div>
             </nav>

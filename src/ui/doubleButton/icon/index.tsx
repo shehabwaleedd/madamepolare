@@ -1,19 +1,6 @@
 import React from 'react';
 import styles from "./style.module.scss";
-
-/**
- * Available icon types for the Icon component.
- * Currently focused on directional arrows.
- */
-type IconType =
-    'arrowRight' |
-    'arrowLeft' |
-    'arrowUp' |
-    'arrowDown' |
-    'arrowUpRight' |
-    'arrowUpLeft' |
-    'arrowDownRight' |
-    'arrowDownLeft';
+import { IconType } from '@/types/general';
 
 /**
  * Props interface for the Icon component.

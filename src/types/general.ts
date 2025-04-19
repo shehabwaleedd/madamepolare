@@ -23,10 +23,16 @@ export interface Settings {
 }
 
 export interface DoubleButtonProps {
-    locales: {
-        lang: string;
-        lang_name: string;
-        url: string;
-    }[];
+    type?: IconType;
     buttonTitle?: KeyTextField;
 }
+
+export type IconType =
+    'arrowRight' |
+    'arrowLeft' |
+    'arrowUp' |
+    'arrowDown' |
+    'arrowUpRight' |
+    'arrowUpLeft' |
+    'arrowDownRight' |
+    'arrowDownLeft';

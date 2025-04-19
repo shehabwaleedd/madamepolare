@@ -4,7 +4,7 @@
 .hero {
     @include flexCenter(column);
     width: 100%;
-    height: fit-content;
+    gap: $spacing-sm;
 
     .content {
         @include flex(column, center, center);

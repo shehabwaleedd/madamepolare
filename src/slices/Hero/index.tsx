@@ -4,6 +4,7 @@ import { SliceComponentProps } from "@prismicio/react";
 import { PrismicNextImage } from "@prismicio/next";
 import styles from "./style.module.scss";
 import Icon from '@/ui/doubleButton/icon';
+import DoubleButton from "@/ui/doubleButton";
 
 export type HeroProps = SliceComponentProps<Content.HeroSectionSlice>;
 
@@ -52,14 +53,10 @@ const Hero: FC<HeroProps> = ({ slice }) => {
           )}
         </div>
 
-        {primary.button_text && (
-          <div className={styles.buttonContainer}>
-            <button className={styles.button}>
-              {primary.button_text}
-            </button>
-          </div>
-        )}
       </div>
+      {primary.button_text && (
+        <DoubleButton buttonTitle={primary.button_text} />
+      )}
     </section>
   );
 };
