@@ -27,6 +27,18 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "sticky_services": {
+              "type": "SharedSlice"
+            },
+            "horizontal_stats": {
+              "type": "SharedSlice"
+            },
+            "process_steps": {
+              "type": "SharedSlice"
+            },
+            "services_images_slider": {
+              "type": "SharedSlice"
+            },
             "service_hero": {
               "type": "SharedSlice"
             },

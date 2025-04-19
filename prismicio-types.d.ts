@@ -5,6 +5,10 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | StickyServicesSlice
+  | HorizontalStatsSlice
+  | ProcessStepsSlice
+  | ServicesImagesSliderSlice
   | ServiceHeroSlice
   | HeroSectionSlice
   | ServiceOfferingsSlice
@@ -1195,6 +1199,7 @@ export interface StickyServicesSliceDefaultPrimaryStickyCardItem {
    * - **Documentation**: https://prismic.io/docs/field#color
    */
   card_background_color: prismic.ColorField;
+
 
   /**
    * Card Text Color field in *StickyServices → Default → Primary → Sticky Card*

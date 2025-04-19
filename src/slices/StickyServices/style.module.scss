@@ -1,0 +1,145 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.stickyServices {
+    width: 100%;
+
+    .header {
+        @include flex(column, center, flex-start);
+        width: 100%;
+        padding: $spacing-lg;
+        padding-bottom: $section-space-main;
+
+        .eyebrow {
+            font-family: $medium-font;
+        }
+
+        .title {
+            font-size: $size-4;
+        }
+    }
+
+    .cardsContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+    }
+
+    .cardLink {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+        border-radius: 4px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-4px);
+        }
+    }
+
+    .card {
+        width: 100%;
+
+        .cardContent {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr;
+            align-items: stretch;
+            padding: 2rem;
+
+            @media (max-width: 768px) {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cardHeader {
+                @include flex(column, space-between, flex-start);
+
+                .cardTitle {
+                    font-size: $size-3;
+                    position: relative;
+                    font-family: $title-font;
+                }
+
+                .tagline {
+                    font-size: $size-125;
+                    line-height: 1.4;
+                    margin-bottom: 1rem;
+                    max-width: 65%;
+                    color: white;
+                }
+            }
+
+            .cardDescription {
+                @include flex(column, space-between, flex-start);
+                .features {
+                    font-size: 0.85rem;
+
+                    p {
+                        margin: 0.5rem 0;
+                        line-height: 1.4;
+                        
+                    }
+                }
+            }
+
+            .cardImage {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+
+                .image {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    border-radius: 2px;
+                }
+
+                .imagePlaceholder {
+                    width: 100%;
+                    aspect-ratio: 4/3;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    border-radius: 2px;
+                }
+            }
+        }
+    }
+}
+
+// Color styles for each service category
+[data-is-sticky="true"] {
+    .cardLink {
+        position: sticky;
+
+        // Stagger the sticky positions
+        // &:nth-child(1) {
+        //     top: 80px;
+        // }
+
+        // &:nth-child(2) {
+        //     top: 90px;
+        // }
+
+        // &:nth-child(3) {
+        //     top: 100px;
+        // }
+
+        // &:nth-child(4) {
+        //     top: 110px;
+        // }
+
+        // &:nth-child(5) {
+        //     top: 120px;
+        // }
+
+        // &:nth-child(6) {
+        //     top: 130px;
+        // }
+
+        // &:nth-child(7) {
+        //     top: 140px;
+        // }
+    }
+}
