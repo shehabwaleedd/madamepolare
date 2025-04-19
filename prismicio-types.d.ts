@@ -96,6 +96,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | ServiceHeroSlice
   | StickyServicesSlice
   | HorizontalStatsSlice
   | ServicesImagesSliderSlice
@@ -366,6 +367,41 @@ export interface SettingsDocumentDataNavItemsItem {
 }
 
 /**
+ * Item in *Settings → Statistics Rows*
+ */
+export interface SettingsDocumentDataHorizontalStatsItem {
+  /**
+   * Statistic Title field in *Settings → Statistics Rows*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Of the startups
+   * - **API ID Path**: settings.horizontalStats[].row_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  row_title: prismic.KeyTextField;
+
+  /**
+   * Statistic Value field in *Settings → Statistics Rows*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 95
+   * - **API ID Path**: settings.horizontalStats[].stat_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stat_number: prismic.KeyTextField;
+
+  /**
+   * Value Suffix field in *Settings → Statistics Rows*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: %
+   * - **API ID Path**: settings.horizontalStats[].sign
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sign: prismic.KeyTextField;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -401,6 +437,19 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#group
    */
   nav_items: prismic.GroupField<Simplify<SettingsDocumentDataNavItemsItem>>;
+
+  /**
+   * Statistics Rows field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.horizontalStats[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  horizontalStats: prismic.GroupField<
+    Simplify<SettingsDocumentDataHorizontalStatsItem>
+  >;
 
   /**
    * MarqueeText field in *Settings*
@@ -1200,7 +1249,6 @@ export interface StickyServicesSliceDefaultPrimaryStickyCardItem {
    */
   card_background_color: prismic.ColorField;
 
-
   /**
    * Card Text Color field in *StickyServices → Default → Primary → Sticky Card*
    *
@@ -1325,6 +1373,7 @@ declare module "@prismicio/client" {
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavItemsItem,
+      SettingsDocumentDataHorizontalStatsItem,
       AllDocumentTypes,
       BlockContentSlice,
       BlockContentSliceDefaultPrimaryRightParagraphesItem,
