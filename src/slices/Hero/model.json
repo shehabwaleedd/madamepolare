@@ -1,16 +1,123 @@
 {
-  "id": "hero",
+  "id": "hero_section",
   "type": "SharedSlice",
-  "name": "Hero",
-  "description": "Hero",
+  "name": "HeroSection",
+  "description": "Hero section with headings, avatar images, and call-to-action button.",
   "variations": [
     {
       "id": "default",
       "name": "Default",
-      "docURL": "...",
-      "version": "initial",
-      "description": "Default",
-      "imageUrl": ""
+      "docURL": "",
+      "version": "v1",
+      "description": "Default variation of Hero Section",
+      "primary": {
+        "first_row_heading": {
+          "type": "Text",
+          "config": {
+            "label": "First Row Heading",
+            "placeholder": "All-in-one"
+          }
+        },
+        "main_image": {
+          "type": "Image",
+          "config": {
+            "label": "Main Hero Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "second_row_heading_before": {
+          "type": "Text",
+          "config": {
+            "label": "Second Row Heading (Before Avatars)",
+            "placeholder": "Creative"
+          }
+        },
+        "avatars": {
+          "type": "Group",
+          "config": {
+            "fields": {
+              "avatar_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Team Member Avatar",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "avatar_alt": {
+                "type": "Text",
+                "config": {
+                  "label": "Avatar Alt Text",
+                  "placeholder": "Team member name"
+                }
+              }
+            },
+            "label": "Team Member Avatars"
+          }
+        },
+        "second_row_heading_after": {
+          "type": "Text",
+          "config": {
+            "label": "Second Row Heading (After Avatars)",
+            "placeholder": "& Design"
+          }
+        },
+        "third_row_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Third Row Heading",
+            "placeholder": "Agency"
+          }
+        },
+        "icon_type": {
+          "type": "Select",
+          "config": {
+            "label": "Icon Type",
+            "options": [
+              "arrowRight",
+              "arrowLeft",
+              "arrowUp",
+              "arrowDown",
+              "arrowUpRight",
+              "arrowUpLeft",
+              "arrowDownRight",
+              "arrowDownLeft"
+            ],
+            "default_value": "arrowDown"
+          }
+        },
+        "max_visible_avatars": {
+          "type": "Number",
+          "config": {
+            "label": "Maximum Visible Avatars",
+            "default": 3
+          }
+        },
+        "show_plus_sign": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show Plus Sign",
+            "default_value": true
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": "Book a free call"
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "Select a link for the button"
+          }
+        }
+      },
+      "items": {},
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
     }
   ]
 }

@@ -4,7 +4,7 @@
 .marquee {
     position: relative;
     width: 100%;
-
+    overflow: hidden;
     background: transparent;
 
     &Wrapper {
@@ -14,7 +14,7 @@
         will-change: transform;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        
+
     }
 
     .marqueeText {

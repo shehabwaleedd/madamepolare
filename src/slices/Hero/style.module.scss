@@ -43,31 +43,31 @@
 
 .avatars {
     display: flex;
-    height: 90px; 
+    height: 90px;
     position: relative;
     width: fit-content;
     align-items: center;
-    
+
     .avatarContainer {
         position: relative;
-        width: calc(60px + (60px * 0.8 * (3 - 1))); 
-        height: 90px; 
-        
+        width: calc(60px + (60px * 0.8 * (3 - 1)));
+        height: 90px;
+
         .avatar {
             position: absolute;
-            width: 80px; 
-            height: 90px; 
+            width: 80px;
+            height: 90px;
             object-fit: cover;
             border-radius: $border-radius;
             transition: transform 0.2s ease;
-            
+
             &:hover {
                 transform: translateY(-3px);
                 z-index: 10;
             }
         }
     }
-    
+
     .plusSign {
         display: flex;
         align-items: center;

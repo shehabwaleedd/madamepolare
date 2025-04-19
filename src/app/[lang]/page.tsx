@@ -6,7 +6,6 @@ import { getFullLocale } from '@/utils/localeUtils';
 import { notFound } from 'next/navigation';
 import { resolveLang } from '@/helper/resolveLang';
 import styles from "./page.module.scss";
-import Hero from '@/components/hero';
 
 type Params = Promise<{ lang: string }>;
 
@@ -46,7 +45,6 @@ export default async function Home({ params }: { params: Params }) {
 
     return (
       <div className={styles.page}>
-        <Hero />
         <SliceZone slices={page.data.slices} components={components} />
       </div>
     );

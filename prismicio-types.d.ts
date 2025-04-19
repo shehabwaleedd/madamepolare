@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = never;
+type HomeDocumentDataSlicesSlice = HeroSectionSlice;
 
 /**
  * Content for home documents
@@ -269,31 +269,183 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes = HomeDocument | PageDocument | SettingsDocument;
 
 /**
- * Default variation for Hero Slice
+ * Item in *HeroSection → Default → Primary → Hero Rows*
+ */
+export interface HeroSectionSliceDefaultPrimaryHeroRowsItem {
+  /**
+   * Heading field in *HeroSection → Default → Primary → Hero Rows*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.default.primary.hero_rows[].heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Avatar Image field in *HeroSection → Default → Primary → Hero Rows*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.default.primary.hero_rows[].avatar_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  avatar_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *HeroSection → Default → Primary*
+ */
+export interface HeroSectionSliceDefaultPrimary {
+
+  /**
+ * First Row Heading field in *HeroSection → Default → Primary*
+ *
+ * - **Field Type**: Text
+ * - **Placeholder**: All-in-one
+ * - **API ID Path**: hero_section.default.primary.first_row_heading
+ * - **Documentation**: https://prismic.io/docs/field#key-text
+ */
+  first_row_heading: prismic.KeyTextField;
+
+  /**
+   * 
+/**
+ * Main Image field in *HeroSection → Default → Primary*
+ *
+ * - **Field Type**: Image
+ * - **Placeholder**: *None*
+ * - **API ID Path**: hero_section.default.primary.main_image
+ * - **Documentation**: https://prismic.io/docs/field#image
+ */
+  main_image: prismic.ImageField<never>;
+
+  /**
+   * Icon Type field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: arrowRight
+   * - **API ID Path**: hero_section.default.primary.icon_type
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon_type: prismic.SelectField<
+    | "arrowRight"
+    | "arrowLeft"
+    | "arrowUp"
+    | "arrowDown"
+    | "arrowUpRight"
+    | "arrowUpLeft"
+    | "arrowDownRight"
+    | "arrowDownLeft",
+    "filled"
+  >;
+
+  /**
+   * Hero Rows field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_section.default.primary.hero_rows[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  hero_rows: prismic.GroupField<
+    Simplify<HeroSectionSliceDefaultPrimaryHeroRowsItem>
+  >;
+
+  second_row_heading_before: prismic.KeyTextField;
+  third_row_heading: prismic.KeyTextField;
+
+  /**
+ * Second Row Heading (After Avatars) field in *HeroSection → Default → Primary*
+ *
+ * - **Field Type**: Text
+ * - **Placeholder**: & Design
+ * - **API ID Path**: hero_section.default.primary.second_row_heading_after
+ * - **Documentation**: https://prismic.io/docs/field#key-text
+ */
+  second_row_heading_after: prismic.KeyTextField;
+
+  /**
+
+
+/**
+ * Maximum Visible Avatars field in *HeroSection → Default → Primary*
+ *
+ * - **Field Type**: Number
+ * - **Placeholder**: *None*
+ * - **API ID Path**: hero_section.default.primary.max_visible_avatars
+ * - **Documentation**: https://prismic.io/docs/field#number
+ */
+  max_visible_avatars: prismic.NumberField;
+  /**
+ * Team Member Avatars field in *HeroSection → Default → Primary*
+ *
+ * - **Field Type**: Group
+ * - **Placeholder**: *None*
+ * - **API ID Path**: hero_section.default.primary.avatars[]
+ * - **Documentation**: https://prismic.io/docs/field#group
+ */
+  avatars: prismic.GroupField<Simplify<AvatarItem>>;
+
+  /**
+   * 
+
+/**
+ * Show Plus Sign field in *HeroSection → Default → Primary*
+ *
+ * - **Field Type**: Boolean
+ * - **Placeholder**: *None*
+ * - **Default Value**: true
+ * - **API ID Path**: hero_section.default.primary.show_plus_sign
+ * - **Documentation**: https://prismic.io/docs/field#boolean
+ */
+  show_plus_sign: prismic.BooleanField;
+
+  button_link: prismic.LinkField;
+
+
+
+  /**
+   * Button Text field in *HeroSection → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Button Text ( Must ) e.g. ( Let's Talk )
+   * - **API ID Path**: hero_section.default.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for HeroSection Slice
  *
  * - **API ID**: `default`
- * - **Description**: Default
+ * - **Description**: Default variation of Hero Section
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HeroSliceDefault = prismic.SharedSliceVariation<
+export type HeroSectionSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<HeroSectionSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *Hero*
+ * Slice variation for *HeroSection*
  */
-type HeroSliceVariation = HeroSliceDefault;
+type HeroSectionSliceVariation = HeroSectionSliceDefault;
 
 /**
- * Hero Shared Slice
+ * HeroSection Shared Slice
  *
- * - **API ID**: `hero`
- * - **Description**: Hero
+ * - **API ID**: `hero_section`
+ * - **Description**: Hero section with grouped headings, avatars, and an icon selector.
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+export type HeroSectionSlice = prismic.SharedSlice<
+  "hero_section",
+  HeroSectionSliceVariation
+>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -326,9 +478,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavItemsItem,
       AllDocumentTypes,
-      HeroSlice,
-      HeroSliceVariation,
-      HeroSliceDefault,
+      HeroSectionSlice,
+      HeroSectionSliceDefaultPrimaryHeroRowsItem,
+      HeroSectionSliceDefaultPrimary,
+      HeroSectionSliceVariation,
+      HeroSectionSliceDefault,
     };
   }
 }
