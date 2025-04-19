@@ -1,0 +1,171 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.processSteps {
+    @include flexCenter(column);
+    width: 100%;
+    padding: $section-space-main $site-margin;
+    gap: $spacing-sm;
+    z-index: 2;
+    position: relative;
+
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    .timelineContainer {
+        position: relative;
+        width: 100%;
+        display: flex;
+    }
+
+    .titleContainer {
+        @include flexCenter(column);
+        gap: $spacing-xs;
+
+        h2 {
+            font-size: $size-4;
+        }
+    }
+
+    .timelineTrack {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        transform: translateX(-50%);
+        z-index: 1;
+
+        .timelineLine {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            background-color: #000;
+            height: 0; 
+        }
+
+        .timelineDot {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #000;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0); 
+            opacity: 0; 
+        }
+    }
+
+    .steps {
+        @include flexCenter(column);
+        width: 100%;
+        padding: $spacing-lg $spacing-xl;
+        gap: 5vh;
+        z-index: 2;
+        transition: $transition-normal;
+
+        @include respond-to(medium-tablet, max) {
+            padding: $spacing-md $spacing-md;
+            gap: 4vh;
+        }
+
+        @include respond-to(phone, max) {
+            padding: $spacing-sm;
+            gap: 3vh;
+        }
+    }
+
+    .step {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $site-gutter-desktop;
+        align-items: start;
+        width: 100%;
+        transition: $transition-normal;
+        padding: 5vh 0;
+        position: relative;
+
+        @include respond-to(large-tablet, max) {
+            gap: $spacing-lg;
+            padding-bottom: $spacing-3xl;
+        }
+
+        @include respond-to(medium-tablet, max) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: $spacing-md;
+        }
+
+        @include respond-to(small-tablet, max) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: $spacing-lg;
+        }
+
+        @include respond-to(phone, max) {
+            grid-template-columns: repeat(1, 1fr);
+            gap: $spacing-sm;
+        }
+    }
+
+    .detail {
+        @include flex(column, center, flex-start);
+        gap: $spacing-sm;
+    }
+
+    .right,
+    .left {
+        border-top: 1px solid $border-color;
+        padding-top: 5vh;
+    }
+
+    .right {
+        @include flex(column, center, flex-start);
+        gap: $spacing-2xl;
+        padding-left: $spacing-xl;
+
+        h4 {
+            font-size: $size-2;
+        }
+
+        span {
+            font-size: $size-1;
+        }
+        p {
+            max-width: 65%;
+        }
+    }
+
+    .left {
+        h3 {
+            font-size: $size-3;
+            max-width: 75%;
+        }
+    }
+}
+
+@include respond-to(small-tablet, max) {
+    .processSteps {
+        .timelineTrack {
+            left: 30px;
+        }
+
+        .steps {
+            padding-left: 60px;
+        }
+    }
+}
+
+@include respond-to(phone, max) {
+    .processSteps {
+        .timelineTrack {
+            left: 20px;
+        }
+
+        .steps {
+            padding-left: 40px;
+        }
+    }
+}

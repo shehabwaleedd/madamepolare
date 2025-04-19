@@ -810,6 +810,26 @@ export interface ProcessStepsSliceDefaultPrimaryStepsItem {
  */
 export interface ProcessStepsSliceDefaultPrimary {
   /**
+   * Title field in *ProcessSteps → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Title ( Must )
+   * - **API ID Path**: process_steps.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Eyebrow field in *ProcessSteps → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Eyebrow ( Must )
+   * - **API ID Path**: process_steps.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
    * Process Steps field in *ProcessSteps → Default → Primary*
    *
    * - **Field Type**: Group

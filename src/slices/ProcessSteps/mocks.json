@@ -25,6 +25,16 @@
 				"credits": null,
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "health",
+				"type": "Text"
+			},
+			"eyebrow": {
+				"__TYPE__": "FieldContent",
+				"value": "elephant",
+				"type": "Text"
 			}
 		},
 		"items": []

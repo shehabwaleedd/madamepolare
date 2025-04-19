@@ -12,6 +12,20 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": "Please Enter Title ( Must )"
+          }
+        },
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": "Please Enter Eyebrow ( Must )"
+          }
+        },
         "steps": {
           "type": "Group",
           "config": {
