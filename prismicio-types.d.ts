@@ -91,6 +91,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | HorizontalStatsSlice
   | ServicesImagesSliderSlice
   | HeroSectionSlice
   | ProcessStepsSlice
@@ -187,6 +188,7 @@ export interface ServicePostDocumentDataRelatedProjectsItem {
 }
 
 type ServicePostDocumentDataSlicesSlice =
+  | HorizontalStatsSlice
   | ServicesImagesSliderSlice
   | ServiceHeroSlice
   | ProcessStepsSlice
@@ -734,6 +736,88 @@ export type HeroSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *HorizontalStats → Default → Primary → Statistics Rows*
+ */
+export interface HorizontalStatsSliceDefaultPrimaryRowsItem {
+  /**
+   * Statistic Title field in *HorizontalStats → Default → Primary → Statistics Rows*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Of the startups
+   * - **API ID Path**: horizontal_stats.default.primary.rows[].row_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  row_title: prismic.KeyTextField;
+
+  /**
+   * Statistic Value field in *HorizontalStats → Default → Primary → Statistics Rows*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 95
+   * - **API ID Path**: horizontal_stats.default.primary.rows[].stat_number
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  stat_number: prismic.KeyTextField;
+
+  /**
+   * Value Suffix field in *HorizontalStats → Default → Primary → Statistics Rows*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: %
+   * - **API ID Path**: horizontal_stats.default.primary.rows[].sign
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sign: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *HorizontalStats → Default → Primary*
+ */
+export interface HorizontalStatsSliceDefaultPrimary {
+  /**
+   * Statistics Rows field in *HorizontalStats → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: horizontal_stats.default.primary.rows[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  rows: prismic.GroupField<
+    Simplify<HorizontalStatsSliceDefaultPrimaryRowsItem>
+  >;
+}
+
+/**
+ * Default variation for HorizontalStats Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Shows statistics in horizontal rows with animated counters
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HorizontalStatsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HorizontalStatsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HorizontalStats*
+ */
+type HorizontalStatsSliceVariation = HorizontalStatsSliceDefault;
+
+/**
+ * HorizontalStats Shared Slice
+ *
+ * - **API ID**: `horizontal_stats`
+ * - **Description**: Display horizontal statistics with animated counters
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HorizontalStatsSlice = prismic.SharedSlice<
+  "horizontal_stats",
+  HorizontalStatsSliceVariation
+>;
+
+/**
  * Item in *ProcessSteps → Default → Primary → Process Steps → Step Details*
  */
 export interface ProcessStepsSliceDefaultPrimaryStepsStepDetailsItem {
@@ -1132,6 +1216,11 @@ declare module "@prismicio/client" {
       HeroSectionSliceDefaultPrimary,
       HeroSectionSliceVariation,
       HeroSectionSliceDefault,
+      HorizontalStatsSlice,
+      HorizontalStatsSliceDefaultPrimaryRowsItem,
+      HorizontalStatsSliceDefaultPrimary,
+      HorizontalStatsSliceVariation,
+      HorizontalStatsSliceDefault,
       ProcessStepsSlice,
       ProcessStepsSliceDefaultPrimaryStepsStepDetailsItem,
       ProcessStepsSliceDefaultPrimaryStepsItem,

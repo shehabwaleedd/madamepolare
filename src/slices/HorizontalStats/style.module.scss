@@ -1,0 +1,81 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.horizontalStats {
+    width: 100%;
+    background-color: $background-color;
+    padding-bottom: 40vh;
+
+    .statsContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .statsRow {
+        @include flex(row, space-between, center);
+        padding: $spacing-lg $spacing-md;
+        border-bottom: 1px solid $border-color;
+
+        &:first-child {
+            border-top: 1px solid $border-color;
+        }
+
+        h3 {
+            font-size: $size-2;
+            font-family: $medium-font;
+
+        }
+
+        span {
+            font-size: $size-4;
+            font-family: $body-font;
+        }
+    }
+
+    .rowTitle {
+        font-size: $font-size-base;
+        font-weight: $semi-bold-font-weight;
+        color: $title-color;
+        font-family: $body-font;
+    }
+
+    .statValue {
+        font-size: $size-2;
+        font-weight: $thick-font-weight;
+        color: $title-color;
+        font-family: $title-font;
+        letter-spacing: -0.02em;
+
+        @include respond-to(medium-tablet, max) {
+            font-size: $semi-big-font-size;
+        }
+
+        @include respond-to(phone, max) {
+            font-size: $big-font-size;
+        }
+    }
+}
+
+@include respond-to(medium-tablet, max) {
+    .horizontalStats {
+        .statsRow {
+            padding: $spacing-md $spacing-sm;
+        }
+
+        .rowTitle {
+            font-size: $font-size-sm;
+        }
+    }
+}
+
+@include respond-to(phone, max) {
+    .horizontalStats {
+        .statsRow {
+            padding: $spacing-sm;
+        }
+
+        .rowTitle {
+            font-size: $font-size-sm;
+        }
+    }
+}

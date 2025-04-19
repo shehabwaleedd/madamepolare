@@ -25,7 +25,6 @@ const ProcessSteps: FC<ProcessStepsProps> = ({ slice }) => {
   const timelineRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<Array<HTMLDivElement | null>>([]);
 
-  // Set up GSAP animations
   useEffect(() => {
     const container = containerRef.current;
     const timeline = timelineRef.current;

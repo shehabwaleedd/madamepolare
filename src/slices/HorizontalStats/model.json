@@ -1,0 +1,49 @@
+{
+  "id": "horizontal_stats",
+  "type": "SharedSlice",
+  "name": "HorizontalStats",
+  "description": "Display horizontal statistics with animated counters",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Shows statistics in horizontal rows with animated counters",
+      "imageUrl": "",
+      "primary": {
+        "rows": {
+          "type": "Group",
+          "config": {
+            "label": "Statistics Rows",
+            "repeat": true,
+            "fields": {
+              "row_title": {
+                "type": "Text",
+                "config": {
+                  "label": "Statistic Title",
+                  "placeholder": "Of the startups"
+                }
+              },
+              "stat_number": {
+                "type": "Text",
+                "config": {
+                  "label": "Statistic Value",
+                  "placeholder": "95"
+                }
+              },
+              "sign": {
+                "type": "Text",
+                "config": {
+                  "label": "Value Suffix",
+                  "placeholder": "%"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
