@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "services_images_slider": {
+              "type": "SharedSlice"
+            },
             "hero_section": {
               "type": "SharedSlice"
             },

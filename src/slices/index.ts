@@ -8,4 +8,5 @@ export const components = {
   process_steps: dynamic(() => import("./ProcessSteps")),
   service_hero: dynamic(() => import("./ServiceHero")),
   service_offerings: dynamic(() => import("./ServiceOfferings")),
+  services_images_slider: dynamic(() => import("./ServicesImagesSlider")),
 };

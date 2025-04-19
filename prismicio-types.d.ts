@@ -91,6 +91,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | ServicesImagesSliderSlice
   | HeroSectionSlice
   | ProcessStepsSlice
   | ServiceOfferingsSlice
@@ -171,140 +172,6 @@ export interface ServicePostDocumentDataServiceItemsItem {
 }
 
 /**
- * Item in *Service Post → Service Offerings → Sub Offerings*
- */
-export interface ServicePostDocumentDataServiceOfferingsSubOfferingsItem {
-  /**
-   * Sub Offering Title field in *Service Post → Service Offerings → Sub Offerings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g., Books & Magazine
-   * - **API ID Path**: service_post.service_offerings[].sub_offerings[].sub_offering_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  sub_offering_title: prismic.KeyTextField;
-
-  /**
-   * Sub Offering Description field in *Service Post → Service Offerings → Sub Offerings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Description of this specific service
-   * - **API ID Path**: service_post.service_offerings[].sub_offerings[].sub_offering_description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  sub_offering_description: prismic.KeyTextField;
-}
-
-/**
- * Item in *Service Post → Service Offerings*
- */
-export interface ServicePostDocumentDataServiceOfferingsItem {
-  /**
-   * Offering Title field in *Service Post → Service Offerings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g., Editorial
-   * - **API ID Path**: service_post.service_offerings[].offering_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  offering_title: prismic.KeyTextField;
-
-  /**
-   * Offering Description field in *Service Post → Service Offerings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Description of this service offering
-   * - **API ID Path**: service_post.service_offerings[].offering_description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  offering_description: prismic.KeyTextField;
-
-  /**
-   * Sub Offerings field in *Service Post → Service Offerings*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service_post.service_offerings[].sub_offerings[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  sub_offerings: prismic.NestedGroupField<
-    Simplify<ServicePostDocumentDataServiceOfferingsSubOfferingsItem>
-  >;
-}
-
-/**
- * Item in *Service Post → Process Steps → Step Details*
- */
-export interface ServicePostDocumentDataProcessStepsStepDetailsItem {
-  /**
-   * Step Week field in *Service Post → Process Steps → Step Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g., Week 1, Week 2
-   * - **API ID Path**: service_post.process_steps[].step_details[].step_details_week
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  step_details_week: prismic.KeyTextField;
-
-  /**
-   * Step Title field in *Service Post → Process Steps → Step Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g., Discovery, Research
-   * - **API ID Path**: service_post.process_steps[].step_details[].step_details_title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  step_details_title: prismic.KeyTextField;
-
-  /**
-   * Step Description field in *Service Post → Process Steps → Step Details*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Description of this specific service
-   * - **API ID Path**: service_post.process_steps[].step_details[].step_details_description
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  step_details_description: prismic.KeyTextField;
-}
-
-/**
- * Item in *Service Post → Process Steps*
- */
-export interface ServicePostDocumentDataProcessStepsItem {
-  /**
-   * Step Name field in *Service Post → Process Steps*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: e.g., Strategy, Creative Concept
-   * - **API ID Path**: service_post.process_steps[].step_name
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  step_name: prismic.KeyTextField;
-
-  /**
-   * Step Description field in *Service Post → Process Steps*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Step details
-   * - **API ID Path**: service_post.process_steps[].step_description
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  step_description: prismic.RichTextField;
-
-  /**
-   * Step Details field in *Service Post → Process Steps*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service_post.process_steps[].step_details[]
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  step_details: prismic.NestedGroupField<
-    Simplify<ServicePostDocumentDataProcessStepsStepDetailsItem>
-  >;
-}
-
-/**
  * Item in *Service Post → Related Projects*
  */
 export interface ServicePostDocumentDataRelatedProjectsItem {
@@ -320,6 +187,7 @@ export interface ServicePostDocumentDataRelatedProjectsItem {
 }
 
 type ServicePostDocumentDataSlicesSlice =
+  | ServicesImagesSliderSlice
   | ServiceHeroSlice
   | ProcessStepsSlice
   | ServiceOfferingsSlice
@@ -384,32 +252,6 @@ interface ServicePostDocumentData {
    */
   service_items: prismic.GroupField<
     Simplify<ServicePostDocumentDataServiceItemsItem>
-  >;
-
-  /**
-   * Service Offerings field in *Service Post*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service_post.service_offerings[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  service_offerings: prismic.GroupField<
-    Simplify<ServicePostDocumentDataServiceOfferingsItem>
-  >;
-
-  /**
-   * Process Steps field in *Service Post*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: service_post.process_steps[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  process_steps: prismic.GroupField<
-    Simplify<ServicePostDocumentDataProcessStepsItem>
   >;
 
   /**
@@ -1162,6 +1004,68 @@ export type ServiceOfferingsSlice = prismic.SharedSlice<
   ServiceOfferingsSliceVariation
 >;
 
+/**
+ * Item in *ServicesImagesSlider → Default → Primary → Images*
+ */
+export interface ServicesImagesSliderSliceDefaultPrimaryImagesItem {
+  /**
+   * Image field in *ServicesImagesSlider → Default → Primary → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_images_slider.default.primary.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *ServicesImagesSlider → Default → Primary*
+ */
+export interface ServicesImagesSliderSliceDefaultPrimary {
+  /**
+   * Images field in *ServicesImagesSlider → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services_images_slider.default.primary.images[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<
+    Simplify<ServicesImagesSliderSliceDefaultPrimaryImagesItem>
+  >;
+}
+
+/**
+ * Default variation for ServicesImagesSlider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesImagesSliderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ServicesImagesSliderSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ServicesImagesSlider*
+ */
+type ServicesImagesSliderSliceVariation = ServicesImagesSliderSliceDefault;
+
+/**
+ * ServicesImagesSlider Shared Slice
+ *
+ * - **API ID**: `services_images_slider`
+ * - **Description**: ServicesImagesSlider
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ServicesImagesSliderSlice = prismic.SharedSlice<
+  "services_images_slider",
+  ServicesImagesSliderSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1192,10 +1096,6 @@ declare module "@prismicio/client" {
       ServicePostDocument,
       ServicePostDocumentData,
       ServicePostDocumentDataServiceItemsItem,
-      ServicePostDocumentDataServiceOfferingsSubOfferingsItem,
-      ServicePostDocumentDataServiceOfferingsItem,
-      ServicePostDocumentDataProcessStepsStepDetailsItem,
-      ServicePostDocumentDataProcessStepsItem,
       ServicePostDocumentDataRelatedProjectsItem,
       ServicePostDocumentDataSlicesSlice,
       SettingsDocument,
@@ -1228,6 +1128,11 @@ declare module "@prismicio/client" {
       ServiceOfferingsSliceDefaultPrimary,
       ServiceOfferingsSliceVariation,
       ServiceOfferingsSliceDefault,
+      ServicesImagesSliderSlice,
+      ServicesImagesSliderSliceDefaultPrimaryImagesItem,
+      ServicesImagesSliderSliceDefaultPrimary,
+      ServicesImagesSliderSliceVariation,
+      ServicesImagesSliderSliceDefault,
     };
   }
 }

@@ -1,0 +1,32 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+
+
+.container {
+    @include flexCenter(row);
+    height: 100vh;
+    padding: 0 0 0 6vw;
+}
+
+.cards {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    gap: 1vw;
+    will-change: transform;
+    padding: 0 0 0 4vw;
+}
+
+.card {
+    position: relative;
+    width: 20vw;
+    min-width: 280px;
+    aspect-ratio: 0.75;
+    border-radius: 1vw;
+    overflow: hidden;
+    object-fit: cover;
+    text-align: center;
+    text-transform: uppercase;
+
+}
