@@ -1,7 +1,6 @@
 'use client'
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import styles from "./style.module.scss";
-import { motion, useScroll, useMotionValue, useMotionValueEvent } from 'framer-motion';
 import TransitionLink from '@/animation/transitionLink';
 import DoubleButton from '@/ui/doubleButton';
 import { NavbarProps } from '@/types/general';
@@ -10,26 +9,6 @@ import SvgLogo from '@/ui/svgLogo';
 import { LanguageSwitcher } from '../languageSwitcher';
 
 const Navbar: React.FC<NavbarProps> = ({ locales, settings }) => {
-    const { scrollY } = useScroll();
-    const lastScrollY = useRef(0);
-    const opacity = useMotionValue(1);
-
-    useEffect(() => {
-        console.log(settings, "settings");
-    }, [settings]);
-
-    useMotionValueEvent(scrollY, "change", (current) => {
-        if (current < 10) {
-            opacity.set(1);
-            lastScrollY.current = current;
-            return;
-        }
-
-        const isScrollingDown = current > lastScrollY.current;
-        const targetOpacity = isScrollingDown ? 0 : 1;
-        opacity.set(targetOpacity);
-        lastScrollY.current = current;
-    });
 
     const links = settings?.nav_items?.map((item) => {
         const linkUrl = item.link_url;
@@ -50,7 +29,7 @@ const Navbar: React.FC<NavbarProps> = ({ locales, settings }) => {
     }) ?? [];
 
     return (
-        <motion.header className={styles.navbar} style={{ opacity, transition: "opacity 0.3s ease" }}>
+        <header className={styles.navbar}>
             <Marquee text={settings?.marqueetext || 'Welcome to our website'} />
             <div className={styles.logoContainer}>
                 <SvgLogo />
@@ -75,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({ locales, settings }) => {
                     </div>
                 </div>
             </nav>
-        </motion.header>
+        </header>
     );
 }
 
