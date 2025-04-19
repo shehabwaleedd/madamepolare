@@ -82,6 +82,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "brand_logos": {
+              "type": "SharedSlice"
+            },
             "sticky_services": {
               "type": "SharedSlice"
             },

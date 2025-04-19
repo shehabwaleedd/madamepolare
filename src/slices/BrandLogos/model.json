@@ -1,0 +1,46 @@
+{
+  "type": "SharedSlice",
+  "id": "brand_logos",
+  "name": "BrandLogos",
+  "variations": [
+    {
+      "id": "logo_grid",
+      "name": "Logo Grid",
+      "description": "A grid layout displaying multiple brand logos",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": "Please Enter Eyebrow ( Must )"
+          }
+        },
+        "main_title": {
+          "type": "Text",
+          "config": {
+            "label": "Main Title",
+            "placeholder": "Please Enter Title ( Must )"
+          }
+        },
+        "logos": {
+          "type": "Group",
+          "config": {
+            "label": "Logos",
+            "fields": {
+              "logo_image": {
+                "type": "Image",
+                "config": {
+                  "label": "Logo Image"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

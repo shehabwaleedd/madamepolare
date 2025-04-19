@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | BrandLogosSlice
   | CtaButtonsSlice
   | StickyServicesSlice
   | HorizontalStatsSlice
@@ -97,6 +98,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | BrandLogosSlice
   | CtaButtonsSlice
   | ServiceHeroSlice
   | StickyServicesSlice
@@ -197,6 +199,7 @@ export interface ServicePostDocumentDataRelatedProjectsItem {
 }
 
 type ServicePostDocumentDataSlicesSlice =
+  | BrandLogosSlice
   | StickyServicesSlice
   | HeroSectionSlice
   | CtaButtonsSlice
@@ -871,6 +874,86 @@ type BlockContentSliceVariation = BlockContentSliceDefault;
 export type BlockContentSlice = prismic.SharedSlice<
   "block_content",
   BlockContentSliceVariation
+>;
+
+/**
+ * Item in *BrandLogos → Logo Grid → Primary → Logos*
+ */
+export interface BrandLogosSliceLogoGridPrimaryLogosItem {
+  /**
+   * Logo Image field in *BrandLogos → Logo Grid → Primary → Logos*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brand_logos.logo_grid.primary.logos[].logo_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *BrandLogos → Logo Grid → Primary*
+ */
+export interface BrandLogosSliceLogoGridPrimary {
+  /**
+   * Eyebrow field in *BrandLogos → Logo Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Eyebrow ( Must )
+   * - **API ID Path**: brand_logos.logo_grid.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Main Title field in *BrandLogos → Logo Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Title ( Must )
+   * - **API ID Path**: brand_logos.logo_grid.primary.main_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_title: prismic.KeyTextField;
+
+  /**
+   * Logos field in *BrandLogos → Logo Grid → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brand_logos.logo_grid.primary.logos[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  logos: prismic.GroupField<Simplify<BrandLogosSliceLogoGridPrimaryLogosItem>>;
+}
+
+/**
+ * Logo Grid variation for BrandLogos Slice
+ *
+ * - **API ID**: `logo_grid`
+ * - **Description**: A grid layout displaying multiple brand logos
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BrandLogosSliceLogoGrid = prismic.SharedSliceVariation<
+  "logo_grid",
+  Simplify<BrandLogosSliceLogoGridPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *BrandLogos*
+ */
+type BrandLogosSliceVariation = BrandLogosSliceLogoGrid;
+
+/**
+ * BrandLogos Shared Slice
+ *
+ * - **API ID**: `brand_logos`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BrandLogosSlice = prismic.SharedSlice<
+  "brand_logos",
+  BrandLogosSliceVariation
 >;
 
 /**
@@ -1759,6 +1842,11 @@ declare module "@prismicio/client" {
       BlockContentSliceDefaultPrimary,
       BlockContentSliceVariation,
       BlockContentSliceDefault,
+      BrandLogosSlice,
+      BrandLogosSliceLogoGridPrimaryLogosItem,
+      BrandLogosSliceLogoGridPrimary,
+      BrandLogosSliceVariation,
+      BrandLogosSliceLogoGrid,
       CtaButtonsSlice,
       CtaButtonsSliceDefaultPrimaryCtaButtonItem,
       CtaButtonsSliceDefaultPrimary,
