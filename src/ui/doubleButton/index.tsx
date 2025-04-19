@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./style.module.scss"
 import { LanguageSwitcher } from '@/components/languageSwitcher'
 import { DoubleButtonProps } from '@/types/general'
+import Icon from './icon';
 
 const DoubleButton: React.FC<DoubleButtonProps> = ({ locales, buttonTitle }) => {
     return (
@@ -14,11 +15,7 @@ const DoubleButton: React.FC<DoubleButtonProps> = ({ locales, buttonTitle }) => 
                     {buttonTitle || "Let's Talk"}
                 </span>
             </div>
-            <div className={styles.icon}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 12H5m7 7l7-7l-7-7" />
-                </svg>
-            </div>
+            <Icon />
         </div>
     );
 };

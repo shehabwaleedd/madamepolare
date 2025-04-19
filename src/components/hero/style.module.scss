@@ -1,0 +1,87 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.hero {
+    @include flexCenter(column);
+    width: 100%;
+    height: fit-content;
+
+    .content {
+        @include flex(column, center, center);
+        width: 100%;
+        padding: $spacing-sm $spacing-lg;
+        max-width: 75%;
+        margin: 0 auto;
+        z-index: 2;
+
+        @include respond-to(medium-tablet, max) {
+            padding: $spacing-xs;
+            margin-bottom: 0;
+        }
+    }
+
+    .row {
+        @include flexCenter(row);
+        gap: $spacing-sm;
+        width: 100%;
+
+
+        h2 {
+            font-size: $size-5;
+            font-family: $title-font;
+            line-height: 1.3;
+        }
+
+        .rowImage {
+            width: 200px;
+            height: 83px;
+            object-fit: contain;
+            border-radius: $border-radius-lg * 2;
+        }
+    }
+}
+
+.avatars {
+    display: flex;
+    height: 90px; 
+    position: relative;
+    width: fit-content;
+    align-items: center;
+    
+    .avatarContainer {
+        position: relative;
+        width: calc(60px + (60px * 0.8 * (3 - 1))); 
+        height: 90px; 
+        
+        .avatar {
+            position: absolute;
+            width: 80px; 
+            height: 90px; 
+            object-fit: cover;
+            border-radius: $border-radius;
+            transition: transform 0.2s ease;
+            
+            &:hover {
+                transform: translateY(-3px);
+                z-index: 10;
+            }
+        }
+    }
+    
+    .plusSign {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 90px;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        background-color: white;
+        position: relative;
+        padding-left: 1rem;
+        z-index: 0;
+        border-top-right-radius: $border-radius;
+        border-bottom-right-radius: $border-radius;
+    }
+}

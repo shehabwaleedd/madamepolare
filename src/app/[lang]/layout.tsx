@@ -11,7 +11,7 @@ import { resolveLang } from "@/helper/resolveLang";
 
 
 const maisonNeueBlack = localFont({
-  src: "../../../public/fonts/CabinetGrotesk-Variable.woff2",
+  src: "../../../public/fonts/Maison Neue Black.woff2",
   variable: "--maisonNeueBlack-font",
   display: "swap",
   preload: true,
