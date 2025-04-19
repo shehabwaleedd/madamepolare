@@ -4,7 +4,10 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HomeDocumentDataSlicesSlice = ServiceOfferingsSlice | BlockContentSlice;
+type HomeDocumentDataSlicesSlice =
+  | HeroSectionSlice
+  | ServiceOfferingsSlice
+  | BlockContentSlice;
 
 /**
  * Content for home documents
@@ -316,7 +319,10 @@ export interface ServicePostDocumentDataRelatedProjectsItem {
   project: prismic.ContentRelationshipField<"project_post">;
 }
 
-type ServicePostDocumentDataSlicesSlice = BlockContentSlice;
+type ServicePostDocumentDataSlicesSlice =
+  | ProcessStepsSlice
+  | ServiceOfferingsSlice
+  | BlockContentSlice;
 
 /**
  * Content for Service Post documents

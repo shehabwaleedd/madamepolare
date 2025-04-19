@@ -183,6 +183,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "process_steps": {
+              "type": "SharedSlice"
+            },
+            "service_offerings": {
+              "type": "SharedSlice"
+            },
             "block_content": {
               "type": "SharedSlice"
             }

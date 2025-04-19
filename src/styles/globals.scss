@@ -91,8 +91,13 @@ h6 {
     font-family: $title-font;
     font-weight: $medium-font-weight;
     margin: 0;
+    line-height: 130%;
 }
 
+p {
+    line-height: 150%;
+    font-family: $medium-font;
+}
 
 img {
     pointer-events: none;
