@@ -402,6 +402,156 @@ export interface SettingsDocumentDataHorizontalStatsItem {
 }
 
 /**
+ * Item in *Settings → Footer Nav Links*
+ */
+export interface SettingsDocumentDataFooterNavigationLinksItem {
+  /**
+   * Link Label field in *Settings → Footer Nav Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: About
+   * - **API ID Path**: settings.footer_navigation_links[].link_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Settings → Footer Nav Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Select a link
+   * - **API ID Path**: settings.footer_navigation_links[].link_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Item in *Settings → Footer Social Links*
+ */
+export interface SettingsDocumentDataFooterSocialLinksItem {
+  /**
+   * Platform Name field in *Settings → Footer Social Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Instagram
+   * - **API ID Path**: settings.footer_social_links[].platform_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  platform_name: prismic.KeyTextField;
+
+  /**
+   * Platform URL field in *Settings → Footer Social Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Link to social profile
+   * - **API ID Path**: settings.footer_social_links[].platform_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  platform_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Icon Type field in *Settings → Footer Social Links*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: Select icon
+   * - **API ID Path**: settings.footer_social_links[].platform_icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  platform_icon: prismic.SelectField<
+    "Instagram" | "LinkedIn" | "Twitter" | "Facebook"
+  >;
+}
+
+/**
+ * Item in *Settings → Office Locations*
+ */
+export interface SettingsDocumentDataFooterOfficesItem {
+  /**
+   * Office Title field in *Settings → Office Locations*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Head Office
+   * - **API ID Path**: settings.footer_offices[].office_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  office_title: prismic.KeyTextField;
+
+  /**
+   * Address Line 1 field in *Settings → Office Locations*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 17 rue André del Sarte
+   * - **API ID Path**: settings.footer_offices[].office_address_line1
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  office_address_line1: prismic.KeyTextField;
+
+  /**
+   * Address Line 2 field in *Settings → Office Locations*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: 75018 Paris, France
+   * - **API ID Path**: settings.footer_offices[].office_address_line2
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  office_address_line2: prismic.KeyTextField;
+
+  /**
+   * Phone Number field in *Settings → Office Locations*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: +33 01 01 01 01 01
+   * - **API ID Path**: settings.footer_offices[].office_phone
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  office_phone: prismic.KeyTextField;
+}
+
+/**
+ * Item in *Settings → Legal Links*
+ */
+export interface SettingsDocumentDataFooterLegalLinksItem {
+  /**
+   * Link Label field in *Settings → Legal Links*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Privacy Policy
+   * - **API ID Path**: settings.footer_legal_links[].link_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_label: prismic.KeyTextField;
+
+  /**
+   * Link field in *Settings → Legal Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Select a link
+   * - **API ID Path**: settings.footer_legal_links[].link_url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_url: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
  * Content for Settings documents
  */
 interface SettingsDocumentData {
@@ -483,6 +633,124 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   double_button_title: prismic.KeyTextField;
+
+  /**
+   * Footer Nav Title field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Info
+   * - **API ID Path**: settings.footer_navigation_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_navigation_title: prismic.KeyTextField;
+
+  /**
+   * Footer Nav Links field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_navigation_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_navigation_links: prismic.GroupField<
+    Simplify<SettingsDocumentDataFooterNavigationLinksItem>
+  >;
+
+  /**
+   * Footer Social Title field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Social
+   * - **API ID Path**: settings.footer_social_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_social_title: prismic.KeyTextField;
+
+  /**
+   * Footer Social Links field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_social_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_social_links: prismic.GroupField<
+    Simplify<SettingsDocumentDataFooterSocialLinksItem>
+  >;
+
+  /**
+   * Office Locations field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_offices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_offices: prismic.GroupField<
+    Simplify<SettingsDocumentDataFooterOfficesItem>
+  >;
+
+  /**
+   * Newsletter Label field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Newsletter
+   * - **API ID Path**: settings.footer_newsletter_label
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_newsletter_label: prismic.KeyTextField;
+
+  /**
+   * Email Placeholder field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Your e-mail
+   * - **API ID Path**: settings.footer_newsletter_placeholder
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_newsletter_placeholder: prismic.KeyTextField;
+
+  /**
+   * Copyright Text field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: © {year} Madame Polare Attelier. All rights reserved.
+   * - **API ID Path**: settings.footer_copyright_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_copyright_text: prismic.KeyTextField;
+
+  /**
+   * Legal Links field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.footer_legal_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  footer_legal_links: prismic.GroupField<
+    Simplify<SettingsDocumentDataFooterLegalLinksItem>
+  >;
+
+  /**
+   * Back to Top Text field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Back to top
+   * - **API ID Path**: settings.footer_back_to_top_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  footer_back_to_top_text: prismic.KeyTextField;
 }
 
 /**
@@ -1374,6 +1642,10 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocumentDataNavItemsItem,
       SettingsDocumentDataHorizontalStatsItem,
+      SettingsDocumentDataFooterNavigationLinksItem,
+      SettingsDocumentDataFooterSocialLinksItem,
+      SettingsDocumentDataFooterOfficesItem,
+      SettingsDocumentDataFooterLegalLinksItem,
       AllDocumentTypes,
       BlockContentSlice,
       BlockContentSliceDefaultPrimaryRightParagraphesItem,

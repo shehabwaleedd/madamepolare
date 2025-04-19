@@ -97,6 +97,165 @@
           "label": "Double Button Title",
           "placeholder": "Please Enter Button Title ( Must ) e.g. ( Let's Talk )"
         }
+      },
+      "footer_navigation_title": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Nav Title",
+          "placeholder": "Info"
+        }
+      },
+      "footer_navigation_links": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Nav Links",
+          "repeat": true,
+          "fields": {
+            "link_label": {
+              "type": "Text",
+              "config": {
+                "label": "Link Label",
+                "placeholder": "About"
+              }
+            },
+            "link_url": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "Select a link",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "footer_social_title": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Social Title",
+          "placeholder": "Social"
+        }
+      },
+      "footer_social_links": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Social Links",
+          "repeat": true,
+          "fields": {
+            "platform_name": {
+              "type": "Text",
+              "config": {
+                "label": "Platform Name",
+                "placeholder": "Instagram"
+              }
+            },
+            "platform_url": {
+              "type": "Link",
+              "config": {
+                "label": "Platform URL",
+                "placeholder": "Link to social profile",
+                "select": null
+              }
+            },
+            "platform_icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon Type",
+                "placeholder": "Select icon",
+                "options": ["Instagram", "LinkedIn", "Twitter", "Facebook"]
+              }
+            }
+          }
+        }
+      },
+      "footer_offices": {
+        "type": "Group",
+        "config": {
+          "label": "Office Locations",
+          "repeat": true,
+          "fields": {
+            "office_title": {
+              "type": "Text",
+              "config": {
+                "label": "Office Title",
+                "placeholder": "Head Office"
+              }
+            },
+            "office_address_line1": {
+              "type": "Text",
+              "config": {
+                "label": "Address Line 1",
+                "placeholder": "17 rue André del Sarte"
+              }
+            },
+            "office_address_line2": {
+              "type": "Text",
+              "config": {
+                "label": "Address Line 2",
+                "placeholder": "75018 Paris, France"
+              }
+            },
+            "office_phone": {
+              "type": "Text",
+              "config": {
+                "label": "Phone Number",
+                "placeholder": "+33 01 01 01 01 01"
+              }
+            }
+          }
+        }
+      },
+      "footer_newsletter_label": {
+        "type": "Text",
+        "config": {
+          "label": "Newsletter Label",
+          "placeholder": "Newsletter"
+        }
+      },
+      "footer_newsletter_placeholder": {
+        "type": "Text",
+        "config": {
+          "label": "Email Placeholder",
+          "placeholder": "Your e-mail"
+        }
+      },
+      "footer_copyright_text": {
+        "type": "Text",
+        "config": {
+          "label": "Copyright Text",
+          "placeholder": "© {year} Madame Polare Attelier. All rights reserved."
+        }
+      },
+      "footer_legal_links": {
+        "type": "Group",
+        "config": {
+          "label": "Legal Links",
+          "repeat": true,
+          "fields": {
+            "link_label": {
+              "type": "Text",
+              "config": {
+                "label": "Link Label",
+                "placeholder": "Privacy Policy"
+              }
+            },
+            "link_url": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "Select a link",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "footer_back_to_top_text": {
+        "type": "Text",
+        "config": {
+          "label": "Back to Top Text",
+          "placeholder": "Back to top"
+        }
       }
     }
   }

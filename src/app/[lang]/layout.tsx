@@ -116,7 +116,7 @@ export default async function LangLayout({ children, params }: { children: React
         <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} ${maisonNeueLight.variable}`}>
           <Navbar locales={locales} settings={settings.data} />
           {children}
-          <Footer />
+          <Footer settings={settings.data} />
           <SmoothScroller />
         </body>
       </ViewTransitions>
