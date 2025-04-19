@@ -1,0 +1,60 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"is_sticky": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"sticky_card": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"sticky_card",
+								{
+									"key": "27e65c51-c5f4-47fa-bb02-a2494adb9ca2",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "DocumentLink",
+										"id": "mock_document_id"
+									}
+								}
+							],
+							[
+								"card_background_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "#1b82e4",
+									"type": "Color"
+								}
+							],
+							[
+								"card_text_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "#05bc28",
+									"type": "Color"
+								}
+							]
+						]
+					}
+				]
+			},
+			"section_title": {
+				"__TYPE__": "FieldContent",
+				"value": "complex",
+				"type": "Text"
+			},
+			"section_eyebrow": {
+				"__TYPE__": "FieldContent",
+				"value": "station",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

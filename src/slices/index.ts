@@ -10,4 +10,5 @@ export const components = {
   service_hero: dynamic(() => import("./ServiceHero")),
   service_offerings: dynamic(() => import("./ServiceOfferings")),
   services_images_slider: dynamic(() => import("./ServicesImagesSlider")),
+  sticky_services: dynamic(() => import("./StickyServices")),
 };

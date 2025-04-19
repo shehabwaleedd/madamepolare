@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | ServiceHeroSlice
   | HeroSectionSlice
   | ServiceOfferingsSlice
   | BlockContentSlice;
@@ -91,6 +92,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | StickyServicesSlice
   | HorizontalStatsSlice
   | ServicesImagesSliderSlice
   | HeroSectionSlice
@@ -1170,6 +1172,119 @@ export type ServicesImagesSliderSlice = prismic.SharedSlice<
   ServicesImagesSliderSliceVariation
 >;
 
+/**
+ * Item in *StickyServices → Default → Primary → Sticky Card*
+ */
+export interface StickyServicesSliceDefaultPrimaryStickyCardItem {
+  /**
+   * Sticky Card field in *StickyServices → Default → Primary → Sticky Card*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_services.default.primary.sticky_card[].sticky_card
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  sticky_card: prismic.ContentRelationshipField<"service_post">;
+
+  /**
+   * Card Background Color field in *StickyServices → Default → Primary → Sticky Card*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: Please Enter Card Backgroun Color e.g. ( #fff )
+   * - **API ID Path**: sticky_services.default.primary.sticky_card[].card_background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  card_background_color: prismic.ColorField;
+
+  /**
+   * Card Text Color field in *StickyServices → Default → Primary → Sticky Card*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: Please Enter Card Text Color e.g. ( #fff )
+   * - **API ID Path**: sticky_services.default.primary.sticky_card[].card_text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  card_text_color: prismic.ColorField;
+}
+
+/**
+ * Primary content in *StickyServices → Default → Primary*
+ */
+export interface StickyServicesSliceDefaultPrimary {
+  /**
+   * Section Eyebrow field in *StickyServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Section Eyebrow ( Optional )
+   * - **API ID Path**: sticky_services.default.primary.section_eyebrow
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_eyebrow: prismic.KeyTextField;
+
+  /**
+   * Section Title field in *StickyServices → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Section Title ( Must )
+   * - **API ID Path**: sticky_services.default.primary.section_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  section_title: prismic.KeyTextField;
+
+  /**
+   * Is Sticky field in *StickyServices → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: true
+   * - **API ID Path**: sticky_services.default.primary.is_sticky
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_sticky: prismic.BooleanField;
+
+  /**
+   * Sticky Card field in *StickyServices → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sticky_services.default.primary.sticky_card[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  sticky_card: prismic.GroupField<
+    Simplify<StickyServicesSliceDefaultPrimaryStickyCardItem>
+  >;
+}
+
+/**
+ * Default variation for StickyServices Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StickyServicesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StickyServicesSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *StickyServices*
+ */
+type StickyServicesSliceVariation = StickyServicesSliceDefault;
+
+/**
+ * StickyServices Shared Slice
+ *
+ * - **API ID**: `sticky_services`
+ * - **Description**: StickyServices
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type StickyServicesSlice = prismic.SharedSlice<
+  "sticky_services",
+  StickyServicesSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1242,6 +1357,11 @@ declare module "@prismicio/client" {
       ServicesImagesSliderSliceDefaultPrimary,
       ServicesImagesSliderSliceVariation,
       ServicesImagesSliderSliceDefault,
+      StickyServicesSlice,
+      StickyServicesSliceDefaultPrimaryStickyCardItem,
+      StickyServicesSliceDefaultPrimary,
+      StickyServicesSliceVariation,
+      StickyServicesSliceDefault,
     };
   }
 }

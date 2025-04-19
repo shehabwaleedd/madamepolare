@@ -1,0 +1,76 @@
+{
+  "id": "sticky_services",
+  "type": "SharedSlice",
+  "name": "StickyServices",
+  "description": "StickyServices",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "section_eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Section Eyebrow",
+            "placeholder": "Please Enter Section Eyebrow ( Optional )"
+          }
+        },
+        "section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Section Title",
+            "placeholder": "Please Enter Section Title ( Must )"
+          }
+        },
+        "is_sticky": {
+          "type": "Boolean",
+          "config": {
+            "label": "Is Sticky",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": true
+          }
+        },
+        "sticky_card": {
+          "type": "Group",
+          "config": {
+            "label": "Sticky Card",
+            "repeat": true,
+            "fields": {
+              "sticky_card": {
+                "type": "Link",
+                "config": {
+                  "label": "Sticky Card",
+                  "select": "document",
+                  "repeat": false,
+                  "customtypes": [
+                    "service_post"
+                  ]
+                }
+              },
+              "card_background_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Card Background Color",
+                  "placeholder": "Please Enter Card Backgroun Color e.g. ( #fff )"
+                }
+              },
+              "card_text_color": {
+                "type": "Color",
+                "config": {
+                  "label": "Card Text Color",
+                  "placeholder": "Please Enter Card Text Color e.g. ( #fff )"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

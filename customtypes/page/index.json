@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "sticky_services": {
+              "type": "SharedSlice"
+            },
             "horizontal_stats": {
               "type": "SharedSlice"
             },
