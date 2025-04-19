@@ -31,23 +31,6 @@
 
 }
 
-[data-theme="dark"] {
-    --background: #{$dark};
-    --text: #{$light};
-    --border: #{$light-faded};
-}
-
-[data-theme="color"] {
-    --background: #{$brand-pink};
-    --text: #{$dark};
-    --border: #{$dark-faded};
-}
-
-[data-theme="gray"] {
-    --background: #{$brand-gray};
-    --text: #{$dark};
-    --border: #{$dark-faded};
-}
 
 
 
@@ -97,6 +80,7 @@ h6 {
 p {
     line-height: 150%;
     font-family: $medium-font;
+    color: $title-color;
 }
 
 img {
@@ -126,7 +110,21 @@ a {
 .hidden {
     display: none;
 }
-
+// @media (prefers-color-scheme: dark) {
+//     :root {
+//         // Dark mode colors - using your theme variables
+//         --background-color: #{$dark};
+//         --container-color: #{$dark-grey-2};
+//         --title-color: #{$white};
+//         --text-color: #{$subtitle-color};
+//         --border-color: #{$light-faded};
+//         --background: #{$dark};
+//         --text: #{$light};
+//         --border: #{$light-faded};
+//         --primary-selection-color: #{$accent-color};
+//         --primary-selection-color-text: #{$white};
+//     }
+// }
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
