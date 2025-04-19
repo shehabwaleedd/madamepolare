@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "cta_buttons": {
+              "type": "SharedSlice"
+            },
             "service_hero": {
               "type": "SharedSlice"
             },

@@ -5,6 +5,7 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | CtaButtonsSlice
   | StickyServicesSlice
   | HorizontalStatsSlice
   | ProcessStepsSlice
@@ -96,6 +97,7 @@ export type HomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<HomeDocumentData>, "home", Lang>;
 
 type PageDocumentDataSlicesSlice =
+  | CtaButtonsSlice
   | ServiceHeroSlice
   | StickyServicesSlice
   | HorizontalStatsSlice
@@ -195,6 +197,9 @@ export interface ServicePostDocumentDataRelatedProjectsItem {
 }
 
 type ServicePostDocumentDataSlicesSlice =
+  | StickyServicesSlice
+  | HeroSectionSlice
+  | CtaButtonsSlice
   | HorizontalStatsSlice
   | ServicesImagesSliderSlice
   | ServiceHeroSlice
@@ -866,6 +871,108 @@ type BlockContentSliceVariation = BlockContentSliceDefault;
 export type BlockContentSlice = prismic.SharedSlice<
   "block_content",
   BlockContentSliceVariation
+>;
+
+/**
+ * Item in *CtaButtons → Default → Primary → CTA Button*
+ */
+export interface CtaButtonsSliceDefaultPrimaryCtaButtonItem {
+  /**
+   * CTA Title field in *CtaButtons → Default → Primary → CTA Button*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter CTA Title ( Must ) e.g. "You feel it too?"
+   * - **API ID Path**: cta_buttons.default.primary.cta_button[].cta_title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_title: prismic.KeyTextField;
+
+  /**
+   * CTA Subtitle field in *CtaButtons → Default → Primary → CTA Button*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter CTA Subtitle ( Must ) e.g. "Let's Talk?"
+   * - **API ID Path**: cta_buttons.default.primary.cta_button[].cta_subtitle
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_subtitle: prismic.KeyTextField;
+
+  /**
+   * CTA Header field in *CtaButtons → Default → Primary → CTA Button*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Pleas Enter CTA Header ( Must ) e.g. "Let's Work!"
+   * - **API ID Path**: cta_buttons.default.primary.cta_button[].cta_header
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_header: prismic.KeyTextField;
+
+  /**
+   * CTA Background Color field in *CtaButtons → Default → Primary → CTA Button*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #fff
+   * - **API ID Path**: cta_buttons.default.primary.cta_button[].cta_background_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  cta_background_color: prismic.ColorField;
+
+  /**
+   * CTA Text Color field in *CtaButtons → Default → Primary → CTA Button*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: #000
+   * - **API ID Path**: cta_buttons.default.primary.cta_button[].cta_text_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  cta_text_color: prismic.ColorField;
+}
+
+/**
+ * Primary content in *CtaButtons → Default → Primary*
+ */
+export interface CtaButtonsSliceDefaultPrimary {
+  /**
+   * CTA Button field in *CtaButtons → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: cta_buttons.default.primary.cta_button[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  cta_button: prismic.GroupField<
+    Simplify<CtaButtonsSliceDefaultPrimaryCtaButtonItem>
+  >;
+}
+
+/**
+ * Default variation for CtaButtons Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CtaButtonsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CtaButtonsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *CtaButtons*
+ */
+type CtaButtonsSliceVariation = CtaButtonsSliceDefault;
+
+/**
+ * CtaButtons Shared Slice
+ *
+ * - **API ID**: `cta_buttons`
+ * - **Description**: CtaButtons
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CtaButtonsSlice = prismic.SharedSlice<
+  "cta_buttons",
+  CtaButtonsSliceVariation
 >;
 
 /**
@@ -1652,6 +1759,11 @@ declare module "@prismicio/client" {
       BlockContentSliceDefaultPrimary,
       BlockContentSliceVariation,
       BlockContentSliceDefault,
+      CtaButtonsSlice,
+      CtaButtonsSliceDefaultPrimaryCtaButtonItem,
+      CtaButtonsSliceDefaultPrimary,
+      CtaButtonsSliceVariation,
+      CtaButtonsSliceDefault,
       HeroSectionSlice,
       HeroSectionSliceDefaultPrimaryAvatarsItem,
       HeroSectionSliceDefaultPrimary,

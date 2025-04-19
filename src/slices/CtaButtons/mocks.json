@@ -1,0 +1,59 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"cta_button": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"cta_subtitle",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "remain",
+									"type": "Text"
+								}
+							],
+							[
+								"cta_title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "shoe",
+									"type": "Text"
+								}
+							],
+							[
+								"cta_header",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fifty",
+									"type": "Text"
+								}
+							],
+							[
+								"cta_background_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "#e3d1e4",
+									"type": "Color"
+								}
+							],
+							[
+								"cta_text_color",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "#549688",
+									"type": "Color"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

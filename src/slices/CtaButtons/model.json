@@ -1,0 +1,63 @@
+{
+  "id": "cta_buttons",
+  "type": "SharedSlice",
+  "name": "CtaButtons",
+  "description": "CtaButtons",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "cta_button": {
+          "type": "Group",
+          "config": {
+            "label": "CTA Button",
+            "repeat": true,
+            "fields": {
+              "cta_title": {
+                "type": "Text",
+                "config": {
+                  "label": "CTA Title",
+                  "placeholder": "Please Enter CTA Title ( Must ) e.g. \"You feel it too?\""
+                }
+              },
+              "cta_subtitle": {
+                "type": "Text",
+                "config": {
+                  "label": "CTA Subtitle",
+                  "placeholder": "Please Enter CTA Subtitle ( Must ) e.g. \"Let's Talk?\""
+                }
+              },
+              "cta_header": {
+                "type": "Text",
+                "config": {
+                  "label": "CTA Header",
+                  "placeholder": "Pleas Enter CTA Header ( Must ) e.g. \"Let's Work!\""
+                }
+              },
+              "cta_background_color": {
+                "type": "Color",
+                "config": {
+                  "label": "CTA Background Color",
+                  "placeholder": "#fff"
+                }
+              },
+              "cta_text_color": {
+                "type": "Color",
+                "config": {
+                  "label": "CTA Text Color",
+                  "placeholder": "#000"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

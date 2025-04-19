@@ -1,0 +1,37 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.ctaButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: $spacing-sm;
+    gap: $spacing-sm;
+    width: 100%;
+
+    @include respond-to(small-tablet, max) {
+        @include flex(column, flex-start, flex-start);  
+        gap: $spacing-xs;
+    }
+
+    .ctaButton {
+        min-height: 40vh;
+        width: 100%;
+        @include flex(column, space-between,flex-start);
+        height: 100%;
+        padding: $spacing-xl;
+
+        h4 {
+            font-size: $size-15;
+        }
+        span {
+            font-family: $medium-font;
+        }
+        h5 {
+            font-size: $size-5;
+        }
+
+        svg {
+            color: black !important;
+        }
+    }
+}

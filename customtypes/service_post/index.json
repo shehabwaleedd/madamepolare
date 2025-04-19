@@ -82,6 +82,15 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "sticky_services": {
+              "type": "SharedSlice"
+            },
+            "hero_section": {
+              "type": "SharedSlice"
+            },
+            "cta_buttons": {
+              "type": "SharedSlice"
+            },
             "horizontal_stats": {
               "type": "SharedSlice"
             },
