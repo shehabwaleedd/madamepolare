@@ -19,7 +19,7 @@ const BlockContent: FC<BlockContentProps> = ({ slice }) => {
 
 
   useEffect(() => {
-    console.log(slice.primary.cta, "CTA LINK DECONSTRUCT");
+    console.log(slice.primary.right_paragraphes, "Paragraphs");
   }, [slice]);
 
   return (
@@ -27,10 +27,16 @@ const BlockContent: FC<BlockContentProps> = ({ slice }) => {
       <div className={styles.grid}>
         <div className={styles.left}>
           <h5>{slice.primary.left_paragraph}</h5>
-          <DoubleButton field={slice.primary.cta} type="arrowRight" className={styles.button} />
+          {slice.primary.show_cta && ( <DoubleButton field={slice.primary.cta} type="arrowRight" className={styles.button} /> )}
         </div>
         <div className={styles.right}>
-          <p>{slice.primary.right_paragraph}</p>
+          <div className={styles.paragraphWrapper}>
+              {slice.primary.right_paragraphes.map((item, index) => (
+                <p key={index} className={styles.paragraph}>
+                  {item.paragraph}
+                </p>
+              ))}
+          </div>
         </div>
       </div>
     </section>

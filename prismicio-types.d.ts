@@ -602,6 +602,21 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Item in *BlockContent → Default → Primary → Right Paragraphes*
+ */
+export interface BlockContentSliceDefaultPrimaryRightParagraphesItem {
+  /**
+   * Paragraph field in *BlockContent → Default → Primary → Right Paragraphes*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Please Enter Paragraph
+   * - **API ID Path**: block_content.default.primary.right_paragraphes[].paragraph
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  paragraph: prismic.KeyTextField;
+}
+
+/**
  * Primary content in *BlockContent → Default → Primary*
  */
 export interface BlockContentSliceDefaultPrimary {
@@ -616,16 +631,6 @@ export interface BlockContentSliceDefaultPrimary {
   left_paragraph: prismic.KeyTextField;
 
   /**
-   * Right Paragraph field in *BlockContent → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Please Enter Right Paragraph ( Optional )
-   * - **API ID Path**: block_content.default.primary.right_paragraph
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  right_paragraph: prismic.KeyTextField;
-
-  /**
    * CTA field in *BlockContent → Default → Primary*
    *
    * - **Field Type**: Link
@@ -634,6 +639,29 @@ export interface BlockContentSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Show CTA field in *BlockContent → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: block_content.default.primary.show_cta
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  show_cta: prismic.BooleanField;
+
+  /**
+   * Right Paragraphes field in *BlockContent → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: block_content.default.primary.right_paragraphes[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  right_paragraphes: prismic.GroupField<
+    Simplify<BlockContentSliceDefaultPrimaryRightParagraphesItem>
+  >;
 }
 
 /**
@@ -1123,6 +1151,7 @@ declare module "@prismicio/client" {
       SettingsDocumentDataNavItemsItem,
       AllDocumentTypes,
       BlockContentSlice,
+      BlockContentSliceDefaultPrimaryRightParagraphesItem,
       BlockContentSliceDefaultPrimary,
       BlockContentSliceVariation,
       BlockContentSliceDefault,

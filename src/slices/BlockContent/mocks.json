@@ -8,19 +8,36 @@
 				"value": "quickly",
 				"type": "Text"
 			},
-			"right_paragraph": {
-				"__TYPE__": "FieldContent",
-				"value": "five",
-				"type": "Text"
-			},
 			"cta": {
-				"__TYPE__": "LinkContent",
 				"key": "82fa9dae-9ac7-4560-97ce-5e7f354d58ba",
+				"__TYPE__": "LinkContent",
 				"value": {
 					"__TYPE__": "ExternalLink",
 					"url": "http://twitter.com",
 					"text": "teacher"
 				}
+			},
+			"show_cta": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"right_paragraphes": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"paragraph",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "lamp",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
 			}
 		},
 		"items": []

@@ -31,9 +31,19 @@
             }
         }
 
-        p {
-            font-size: $size-1;
-            line-height: 150%;
+        .right {
+            @include flex(column, flex-start, flex-start);
+            height: 100%;
+        }
+
+        .paragraphWrapper {
+            @include flex(column, flex-start, flex-start);
+            gap: $spacing-sm;
+
+            p {
+                font-size: $size-1;
+                line-height: 150%;
+            }
         }
     }
 }

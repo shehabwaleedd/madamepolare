@@ -19,13 +19,6 @@
             "placeholder": "Please Enter Left Paragraph ( Optional )"
           }
         },
-        "right_paragraph": {
-          "type": "Text",
-          "config": {
-            "label": "Right Paragraph",
-            "placeholder": "Please Enter Right Paragraph ( Optional )"
-          }
-        },
         "cta": {
           "type": "Link",
           "config": {
@@ -35,6 +28,31 @@
             "allowTargetBlank": true,
             "allowText": true,
             "repeat": false
+          }
+        },
+        "show_cta": {
+          "type": "Boolean",
+          "config": {
+            "label": "Show CTA",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
+        },
+        "right_paragraphes": {
+          "type": "Group",
+          "config": {
+            "label": "Right Paragraphes",
+            "repeat": true,
+            "fields": {
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Please Enter Paragraph "
+                }
+              }
+            }
           }
         }
       },
