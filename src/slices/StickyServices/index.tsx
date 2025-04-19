@@ -71,7 +71,7 @@ const StickyServices = async ({ slice }: StickyServicesProps) => {
           if (!service) return null;
 
           return (
-            <TransitionLink key={service.id} href={`/services/${service.uid}`} className={styles.cardLink} style={{ backgroundColor: item.card_background_color || "#ffffff", color: item.card_text_color || "#000000", top: `calc(0vh + ${index * 9.5}vh)` }}>
+            <TransitionLink key={service.id} href={`/services/${service.uid}`} className={styles.cardLink} style={{ backgroundColor: item.card_background_color || "#ffffff", color: item.card_text_color || "#000000", top: `calc(-2vh + ${index * 8}vh)` }}>
               <div className={styles.card} >
                 <div className={styles.cardContent}>
                   <div className={styles.cardHeader}>

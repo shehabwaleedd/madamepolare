@@ -1,0 +1,269 @@
+@import "@/styles/variables";
+@import "@/styles/mixins";
+
+.footer {
+    position: relative;
+    width: 100%;
+    background-color: #f2f2f2;
+    padding: $spacing-xl $spacing-lg;
+    color: #1a1a1a;
+    font-family: $body-font;
+    padding-top: 10vh;
+
+    @include respond-to(tablet, max) {
+        padding: $spacing-lg $spacing-sm;
+        padding-top: 5vh;
+    }
+
+    .wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-2xl;
+    }
+}
+
+.topSection {
+    width: 100%;
+}
+
+.navigations {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @include respond-to(tablet, max) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include respond-to(mobile, max) {
+        grid-template-columns: 1fr;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+
+        h3 {
+            font-size: $size-15;
+            font-family: $title-font;
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-xs;
+
+            li {
+                font-size: $size-1;
+                font-family: $medium-font
+            }
+        }
+
+        .footerLink {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        .address,
+        .phone {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+
+            p {
+                margin: 0;
+                line-height: 1.4;
+            }
+        }
+
+        .mapPin,
+        .phoneIcon {
+            margin-bottom: 0.5rem;
+        }
+
+        .phoneIcon, .mapPin {
+            padding-bottom: $spacing-sm;
+            border-bottom: 1px solid $border-color
+        }
+    }
+}
+
+.middleSection {
+    @include flex(row, space-between, center);
+    gap: $spacing-lg;
+    width: 100%;
+
+    @include respond-to(tablet, max) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .socialIcons {
+        display: flex;
+        gap: 1rem;
+        width: 20%;
+
+        .icon {
+            @include flexCenter(row);
+            width: 40px;
+            height: 40px;
+            transition: $animation-primary;
+            background-color: white;
+            border-radius: 50%;
+            padding: 0.4rem;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+}
+
+.newsletter {
+    @include flexCenter(row);
+    gap: $spacing-sm;
+    width: 100%;
+
+    .newsletterLabel {
+        font-size: $size-15;
+        font-family: $title-font;
+        white-space: nowrap;
+    }
+
+    .newsletterForm {
+        flex: 1;
+    }
+
+    .inputContainer {
+        position: relative;
+        width: 100%;
+        height: 50px;
+        padding: $spacing-sm;
+    }
+
+    .newsletterInput {
+        @include position(absolute, 0, null, null, 0);
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: white;
+        padding: $spacing-sm;
+        font-size: $size-1;
+        outline: none;
+
+        &:focus+.placeholderText,
+        &:not(:placeholder-shown)+.placeholderText {
+            opacity: 0;
+        }
+    }
+
+    .placeholderText {
+        @include position(absolute, 50%, null, null, 0);
+        transform: translateY(-50%);
+        color: rgba(30, 30, 30, 1);
+        font-family: $title-font;
+        font-size: $size-1;
+        pointer-events: none;
+        transition: opacity 0.2s;
+        padding: $spacing-sx $spacing-sm;
+    }
+
+    .submitButton {
+        @include position(absolute, 50%, 0, null, null);
+        transform: translateY(-50%);
+        background: transparent;
+        border: none;
+        width: 24px;
+        height: 24px;
+        margin-right: $spacing-sm;
+        cursor: pointer;
+        fill: $title-color;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            color: $title-color;
+        }
+    }
+}
+
+.footerBottom {
+    width: 100%;
+}
+
+.footerCopyrightLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(26, 26, 26, 0.2);
+
+    @include respond-to(tablet, max) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .primary {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+
+    .bottomLinks {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        @include respond-to(mobile, max) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+    }
+
+    .footerNavLinks {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 1.5rem;
+
+        li {
+            font-size: 0.8rem;
+        }
+
+        .footerCopyrightLink {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .backToTop {
+        font-size: 0.8rem;
+        color: #1a1a1a;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}

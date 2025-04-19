@@ -47,6 +47,36 @@
           }
         }
       },
+      "horizontalStats": {
+        "type": "Group",
+        "config": {
+          "label": "Statistics Rows",
+          "repeat": true,
+          "fields": {
+            "row_title": {
+              "type": "Text",
+              "config": {
+                "label": "Statistic Title",
+                "placeholder": "Of the startups"
+              }
+            },
+            "stat_number": {
+              "type": "Text",
+              "config": {
+                "label": "Statistic Value",
+                "placeholder": "95"
+              }
+            },
+            "sign": {
+              "type": "Text",
+              "config": {
+                "label": "Value Suffix",
+                "placeholder": "%"
+              }
+            }
+          }
+        }
+      },
       "marqueetext": {
         "type": "Text",
         "config": {

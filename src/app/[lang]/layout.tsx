@@ -8,7 +8,7 @@ import localFont from "next/font/local";
 import Navbar from "@/components/navbar";
 import "@/styles/globals.scss";
 import { resolveLang } from "@/lib/resolveLang";
-
+import Footer from "@/components/footer";
 
 const maisonNeueBlack = localFont({
   src: "../../../public/fonts/Maison Neue Black.woff2",
@@ -116,6 +116,7 @@ export default async function LangLayout({ children, params }: { children: React
         <body className={`${maisonNeueBlack.variable} ${maisonNeueBold.variable} ${maisonNeueMedium.variable} ${maisonNeueLight.variable}`}>
           <Navbar locales={locales} settings={settings.data} />
           {children}
+          <Footer />
           <SmoothScroller />
         </body>
       </ViewTransitions>
